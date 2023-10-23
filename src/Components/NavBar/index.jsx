@@ -24,7 +24,7 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="http://localhost:5174/listing">
                 LISTING
               </Link>
             </li>
@@ -35,12 +35,12 @@ function NavBar() {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="http://localhost:5174/contact">
                 CONTACT
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="http://localhost:5174/help">
                 HELP
               </Link>
             </li>
