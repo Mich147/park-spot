@@ -13,12 +13,12 @@ function UserOption() {
         SIGNUP
       </button>
       <div className="dropdown-menu">
-        <Link className="dropdown-item" to="http://localhost:5173/user-signup">
+        <Link className="dropdown-item" to="http://localhost:5174/user-signup">
           As User
         </Link>
         <Link
           className="dropdown-item"
-          to="http://localhost:5173/parkner-signup"
+          to="http://localhost:5174/parkner-signup"
         >
           As Parkner
         </Link>
