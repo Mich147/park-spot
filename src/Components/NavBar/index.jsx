@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-// import Logo from "../../images/Logo.png";
-// import BurgerMenu from "../BurgerMenu";
-// import UserOption from "../UserOption";
-// import Login from "../Login";
+import Logo from "../Logo";
+import BurgerMenu from "../BurgerMenu";
+import UserOption from "../UserOption";
+import Login from "../Login";
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light  sticky-top">
       <div className="container-fluid">
-        {/* <Logo />
-        <BurgerMenu /> */}
+        <Logo />
+        <BurgerMenu />
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -47,8 +47,8 @@ function NavBar() {
           </ul>
         </div>
         <div className="ml-auto">
-          {/* <Login />
-          <UserOption /> */}
+          <Login />
+          <UserOption />
         </div>
       </div>
     </nav>
