@@ -1,0 +1,112 @@
+body {
+  font-family: "Roboto", sans-serif;
+
+  padding: 0px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Nav BAr */
+.nav-item {
+  font-weight: bold;
+}
+
+.navbar {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.176);
+}
+
+.container-no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.login-button {
+  background-color: #14a8ff;
+  border-color: #14a8ff;
+}
+.signup-button {
+  background-color: white;
+  border-color: #14a8ff;
+  color: #14a8ff;
+}
+
+.dropdown-menu a {
+  color: #14a8ff;
+}
+.dropdown-menu a:hover {
+  background-color: #14a8ff;
+  color: white;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.navbar-nav .nav-item {
+  text-align: center;
+}
+
+/* footer section */
+
+.footer-container ul.list-unstyled li a {
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit; /* Maintain the text color */
+}
+
+.footer-container h5 {
+  font-size: 14px;
+  color: #14a8ff;
+}
+
+/* modal css */
+.modal-content {
+  text-align: center;
+}
+
+.custom-modal-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 0px;
+}
+
+/* Style for the "Continue with Facebook" button */
+.custom-modal-button.facebook {
+  background-color: #1877f2; /* Facebook blue */
+  color: white;
+  border-radius: 0px;
+}
+
+/* Style for the "Continue with Email" button */
+.custom-modal-button.email {
+  background-color: #1877f2; /* Orange color */
+  color: white;
+  border-radius: 0px;
+}
+
+/* Hover effect for buttons */
+.custom-modal-button:hover {
+  opacity: 0.8;
+}
+
+.form-body {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.224);
+  padding-top: 20px !important ;
+  padding-bottom: 20px !important ;
+}
+.mt-4 {
+  margin: 50px !important ;
+}
+.card {
+  margin: 50px !important ;
+}
+.col-lg-4 {
+  position: flex;
+  flex-direction: column;
+  margin-left: 100%;
+  margin-top: 0;
+}
