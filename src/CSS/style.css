@@ -1,0 +1,543 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Nav BAr */
+.navbar-brand {
+  margin-left: 30px;
+}
+.btn-group {
+  margin-right: 30px;
+}
+.btn-group .dropdown-item {
+  align-items: center;
+  justify-content: center;
+}
+.btn-group .dropdown-item {
+  width: 100px;
+  padding-right: 50px;
+}
+.nav-item {
+  font-weight: bold;
+}
+.navbar {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.176);
+}
+
+.container-no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.login-button {
+  background-color: #14a8ff;
+  border-color: #14a8ff;
+}
+.signup-button {
+  background-color: white;
+  border-color: #14a8ff;
+  color: #14a8ff;
+}
+
+.dropdown-menu a {
+  color: #14a8ff;
+}
+.dropdown-menu a:hover {
+  background-color: #14a8ff;
+  color: white;
+}
+.dropdown-menu[data-bs-popper] {
+  left: -62px !important;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.navbar-nav .nav-item {
+  text-align: center;
+}
+
+/* Hero Section */
+
+.hero-image {
+  background-image: url(../images/heroImage.jpg);
+  background-size: cover;
+  min-height: 700px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+.hero-image h1 {
+  margin-top: 60px;
+}
+.hero-image h3 {
+  margin-top: -10px;
+}
+
+/* Align the h1 to the left on larger screens */
+@media (min-width: 768px) {
+  .hero-image h1 {
+    text-align: left;
+
+    margin-left: 103px;
+    font-family: "Blinker", sans-serif;
+    font-weight: 600;
+    font-size: 80px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.295);
+  }
+  .hero-image h3 {
+    text-align: left;
+    margin-left: 103px;
+    margin-bottom: 100px;
+    font-family: "Blinker", sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.215);
+  }
+  .hero-image h4 {
+    text-align: left;
+    margin-left: 103px;
+    font-family: "Blinker", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.407);
+  }
+}
+
+/* Media query for larger screens (adjust background-size as needed) */
+@media (min-height: 768px) {
+  .hero-image {
+    background-size: contain;
+  }
+}
+
+.toggle-button {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* Active state for toggle buttons */
+.toggle-button.active {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.toggle-button.active .icon-box {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
+}
+
+.btn.active {
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+
+.icon-box {
+  width: 90px;
+  height: 83px;
+  background-color: rgba(255, 255, 255, 0.355);
+  border-color: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  text-align: center;
+  margin-left: 103px;
+}
+
+.icon-box.active-icon-box {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.icon-box img {
+  width: 45px;
+}
+
+#toggle3 img {
+  width: 66px;
+  height: 69px;
+}
+
+#toggle2 img {
+  width: 66px;
+  height: 69px;
+}
+
+/* Align the toggle button row to the left */
+@media (min-width: 768px) {
+  .d-flex.flex-column.flex-md-row {
+    justify-content: flex-start;
+  }
+}
+
+.white-background-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+.btn {
+  margin-top: 20px;
+}
+
+label {
+  display: block; /* Make labels block-level elements */
+  font-weight: bold; /* Add bold font weight */
+  margin-bottom: 15px; /* Add some space below each label */
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #b3b3b3; /* Change the label text color */
+}
+
+/* OUR PRESSENCE */
+
+.custom-container-2 {
+  height: auto;
+  background-color: #2d2d2d !important;
+  margin-top: 50px;
+  color: #14a8ff;
+}
+
+.content-container {
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-left: 103px;
+  margin-right: 103px;
+}
+
+.content-box {
+  text-align: center;
+}
+
+.content-box h2 {
+  font-family: "Blinker", sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+.content-box h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: white;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .custom-container-2 {
+    height: auto; /* Reset height to auto on mobile screens */
+    flex-direction: column; /* Items stack in a column on mobile screens */
+  }
+
+  /* Change the color of .content-box h3 to black on mobile screens */
+  .content-box h3 {
+    color: #000; /* Black color */
+  }
+}
+
+@media (max-width: 425px) {
+  /* Change the size of .content-box img on mobile screens */
+  .content-box img {
+    max-width: 100px; /* Set the maximum width for the image */
+  }
+}
+
+.content-box img {
+  max-width: 257px;
+  margin-top: 10px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.249);
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column; /* Items stack in a column on mobile screens */
+  }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .custom-container-2 {
+    flex-direction: column; /* Items stack in a column on mobile screens */
+  }
+}
+
+.description-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Ensure the container takes up the full viewport height */
+  margin-left: 103px;
+  text-align: center;
+}
+
+/* You may also want to add some additional styling to center-align the content within each column */
+.custom-column-unique1 {
+  padding-left: 103px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 103px;
+}
+
+.custom-column-unique2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+/* Remove default left padding for custom row */
+.custom-row-no-padding {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row > * {
+  padding-left: 0px;
+}
+
+.description-container h3 {
+  margin-top: 50px;
+  font-family: "Roboto", sans-serif;
+  font-family: 700;
+  font-size: 45px;
+}
+
+.description-container h4 {
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 33px;
+}
+
+/* Custom CSS to control layout and spacing on sm and md screens */
+@media (max-width: 768px) {
+  .description-container {
+    margin-bottom: 20px; /* Add a bottom margin to create separation */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .description-container {
+    margin-bottom: 40px; /* Adjust the margin as needed for md screens */
+  }
+}
+
+/* Additional CSS for larger screens if needed */
+
+.container-mobile {
+  align-items: center;
+  max-height: 300px;
+  margin-top: 170px;
+}
+.custom-image-column {
+  background-color: #000000 !important; /* Change the background color */
+  align-items: center;
+}
+
+/* Style for Column 2 with text and icons */
+.custom-text-column {
+  padding: 20px; /* Add padding for spacing */
+  text-align: left;
+}
+
+.custom-text-column h2 {
+  color: #000000; /* Change the text color */
+  font-family: "Blinker", sans-serif;
+  margin-top: 100px;
+  font-weight: 600;
+  font-size: 70px;
+}
+
+.custom-text-column p {
+  color: #000000; /* Change the text color */
+  font-size: 20px;
+}
+
+.custom-text-column .text-warning {
+  color: #ffac33; /* Change the star icon color */
+}
+
+/* Style for app store icons */
+.app-store-icons img {
+  max-width: 100px; /* Adjust the maximum width */
+  margin-right: 10px; /* Add spacing between icons */
+}
+
+.phone-image {
+  align-items: center;
+  text-align: center;
+}
+
+.custom-text-column {
+  align-items: center;
+}
+
+.App img {
+  width: 200px;
+  margin-top: 40px;
+  margin: 30px;
+}
+
+.phone-image img {
+  align-items: center;
+  text-align: center;
+}
+
+.testimonial-container {
+  padding-top: 400px;
+}
+
+/* Carousel CSS */
+.testimonial-container {
+  background-color: #ffffff; /* Change to your desired gray color */
+  padding-top: 500px; /* Add padding for spacing */
+}
+
+/* Custom CSS for the testimonial carousel */
+.testimonial-carousel {
+  margin-top: 30px; /* Adjust top margin as needed */
+}
+
+/* Custom CSS for the testimonial card */
+.testimonial-card {
+  max-width: 800px; /* Adjust the card width as needed */
+  margin: 0 auto; /* Center align the card */
+}
+
+/* Custom CSS for the carousel control buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #000000; /* Change to your desired gray color */
+  color: #000000; /* Text color for the buttons */
+  opacity: 1; /* Set opacity to 1 to make the buttons fully visible */
+}
+
+/* Hover styles for the carousel control buttons (optional) */
+
+.carousel-item {
+  background-color: #2d2d2d;
+  padding: 20px;
+}
+
+.testimonial-container h1 {
+  font-family: "Blinker", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  color: #14a8ff;
+}
+
+.fas {
+  color: #ffac33;
+}
+
+.card-title {
+  font-weight: bold;
+}
+.card-text {
+  font-size: 20px;
+}
+
+/* collaborator section */
+
+.collab h1 {
+  font-family: "Blinker", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  color: #14a8ff;
+}
+
+.collaborator-container {
+  margin-top: 250px;
+}
+
+.collaborator-item {
+  align-items: center;
+  text-align: center;
+}
+
+/* newsletter css */
+
+.newsletter-email::placeholder {
+  font-size: 14px; /* Adjust the font size as needed */
+  padding: 10px; /* Adjust the padding as needed */
+}
+.newsletter-email {
+  height: 40px;
+  margin-top: 20px;
+}
+
+.newsletter-form-container {
+  max-width: 300px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.newsletter-container {
+  background-color: #14a8ff;
+  padding: 20px;
+  margin-top: 200px;
+}
+
+.newsletter-container h1 {
+  font-family: "Blinker", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.newsletter-container p {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.newsletter-container h5 {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+/* footer section */
+
+/* Remove underlines from links */
+.footer-container ul.list-unstyled li a {
+  text-decoration: none;
+  color: inherit; /* Maintain the text color */
+}
+
+.font-weight-bold {
+  color: #14a8ff;
+}
+.font-weight-bold:hover {
+  color: #ffffff;
+  transition: -7;
+}
+.scroll-top {
+  position: fixed;
+  bottom: 2.3rem;
+  right: 2.3rem;
+  border-radius: 30px;
+  border: none;
+}
+.scroll-top i:hover {
+  color: #14a8ff;
+}
+.scroll-top i {
+  background: #ffffff;
+  color: #14a8ff;
+  font-size: 22px;
+  padding: 5px;
+  border-radius: 30px;
+}
+.scroll-top li {
+  font-size: 10px;
+}
+.scroll-top li:hover {
+  color: #14a8ff;
+}
