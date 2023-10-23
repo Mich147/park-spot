@@ -5,6 +5,9 @@ import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
 import Help from "./Pages/Help";
 import Listing from "./Pages/Listing";
+import ParkingDetails from "./Pages/ParkingDetails";
+import ParknerSignup from "./Pages/ParknerSignup";
+import UserSignup from "./Pages/UserSignup";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
   {
     path: "/listing",
     element: <Listing />,
+  },
+  {
+    path: "/parking-details",
+    element: <ParkingDetails />,
+  },
+  {
+    path: "/parkner-signup",
+    element: <ParknerSignup />,
+  },
+  {
+    path: "/user-signup",
+    element: <UserSignup />,
   },
 ]);
 

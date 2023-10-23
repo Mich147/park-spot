@@ -78,6 +78,10 @@ label {
 .line {
   font-size: 10px;
 }
+.details-btn {
+  text-decoration: none;
+  color: white;
+}
 
 .box {
   border: 1px solid #ccc;

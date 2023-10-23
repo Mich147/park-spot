@@ -20,6 +20,7 @@ import parklt1 from "../Listing/images/prklt1.jpg";
 import parklt2 from "../Listing/images/prklt2.jpg";
 import parklt3 from "../Listing/images/prklt3.jpg";
 import parklt4 from "../Listing/images/prklt4.jpg";
+import { Link } from "react-router-dom";
 
 function Listing() {
   const [filterValue, setFilterValue] = useState("all");
@@ -116,7 +117,12 @@ function Listing() {
           <h6>Ratings:</h6>
           <p className="star">★★★★★</p>
           <button className="btn btn-primary btn-sm" id="detailsButton">
-            Details
+            <Link
+              to="http://localhost:5174/parking-details"
+              className="details-btn"
+            >
+              Details
+            </Link>
           </button>
         </div>
 
