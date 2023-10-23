@@ -6,17 +6,22 @@ import CollabSection from "./Components/CollabSection";
 import PresenceSection from "./Components/PresenceSection";
 import ParkNowSection from "./Components/ParkNowSection";
 import MobileApp from "./Components/MobileApp";
+import TestimonialSection from "./Components/TestimonialSection";
+import ScrollTopButton from "./Components/ScrollTopButton";
 
 function App() {
   return (
     <div>
       <NavBar />
-      <PresenceSection />
       <HeroSection />
+      <PresenceSection />
       <ParkNowSection />
       <MobileApp />
+      <TestimonialSection />
       <CollabSection />
+      <TestimonialSection />
       <Footer />
+      <ScrollTopButton />
     </div>
   );
 }
