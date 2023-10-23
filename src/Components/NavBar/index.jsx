@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import Logo from "../Logo";
-import BurgerMenu from "../BurgerMenu";
-import UserOption from "../UserOption";
-import Login from "../Login";
+import { Link } from 'react-router-dom'
+import BurgerMenu from '../BurgerMenu'
+import Login from '../Login'
+import Logo from '../Logo'
+import UserOption from '../UserOption'
 
 function NavBar() {
   return (
@@ -19,28 +19,28 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/how-it-works">
                 HOW IT WORKS
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="http://localhost:5174/listing">
+              <Link className="nav-link" to="/listing">
                 LISTING
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="http://localhost:5174/blogs">
+              <Link className="nav-link" to="/blogs">
                 BLOGS
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="http://localhost:5174/contact">
+              <Link className="nav-link" to="/contact">
                 CONTACT
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="http://localhost:5174/help">
+              <Link className="nav-link" to="/help">
                 HELP
               </Link>
             </li>
@@ -52,7 +52,7 @@ function NavBar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar
