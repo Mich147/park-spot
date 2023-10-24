@@ -1,10 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import BurgerMenu from '../BurgerMenu'
-import Login from '../Login'
 import Logo from '../Logo'
 import UserOption from '../UserOption'
 
+import { getAuth } from 'firebase/auth'
+import { useEffect, useState } from 'react'
+
 function NavBar() {
+  const [user, setUser] = useState(null)
+  const auth = getAuth()
+
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    auth.signOut()
+    navigate('/')
+  }
+
+  useEffect(() => {
+    setUser(auth.currentUser)
+  }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light  sticky-top">
       <div className="container-fluid">
@@ -47,8 +62,18 @@ function NavBar() {
           </ul>
         </div>
         <div className="ml-auto">
-          <Login />
-          <UserOption />
+          {user ? (
+            <button type="button" className="btn btn-primary login-button me-2" onClick={handleLogOut}>
+              LOGOUT
+            </button>
+          ) : (
+            <>
+              <button type="button" className="btn btn-primary login-button me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                LOGIN
+              </button>
+              <UserOption />
+            </>
+          )}
         </div>
       </div>
     </nav>
