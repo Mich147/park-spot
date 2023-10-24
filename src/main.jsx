@@ -10,6 +10,8 @@ import ParknerSignup from './Pages/ParknerSignup'
 import UserSignup from './Pages/UserSignup'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import DashboardRoute from './Components/DashboardRoute'
+import Dashboard from './Pages/Dashboard'
 import HowItWorks from './Pages/HowItWorks'
 
 const router = createBrowserRouter([
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
   {
     path: '/how-it-works',
     element: <HowItWorks />,
+  },
+  {
+    path: '/dashboard/*',
+    element: (
+      <DashboardRoute>
+        <Dashboard />
+      </DashboardRoute>
+    ),
   },
 ])
 

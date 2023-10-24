@@ -1,3 +1,4 @@
+import Footer from '../../Components/Footer'
 import NavBar from '../../Components/NavBar'
 
 function HowItWorks() {
@@ -6,6 +7,7 @@ function HowItWorks() {
       <NavBar />
 
       <h1>How it works</h1>
+      <Footer />
     </div>
   )
 }
