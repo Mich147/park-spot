@@ -1,13 +1,14 @@
-import "./CSS/style.css";
-import NavBar from "./Components/NavBar";
-import HeroSection from "./Components/HeroSection";
-import Footer from "./Components/Footer";
-import CollabSection from "./Components/CollabSection";
-import PresenceSection from "./Components/PresenceSection";
-import ParkNowSection from "./Components/ParkNowSection";
-import MobileApp from "./Components/MobileApp";
-import TestimonialSection from "./Components/TestimonialSection";
-import ScrollTopButton from "./Components/ScrollTopButton";
+import './CSS/style.css'
+import CollabSection from './Components/CollabSection'
+import Footer from './Components/Footer'
+import HeroSection from './Components/HeroSection'
+import MobileApp from './Components/MobileApp'
+import NavBar from './Components/NavBar'
+import NewsLetterSection from './Components/NewsLetterSection'
+import ParkNowSection from './Components/ParkNowSection'
+import PresenceSection from './Components/PresenceSection'
+import ScrollTopButton from './Components/ScrollTopButton'
+import TestimonialSection from './Components/TestimonialSection'
 
 function App() {
   return (
@@ -19,11 +20,12 @@ function App() {
       <MobileApp />
       <TestimonialSection />
       <CollabSection />
-      <TestimonialSection />
+      <NewsLetterSection />
+      {/* <TestimonialSection /> */}
       <Footer />
       <ScrollTopButton />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
