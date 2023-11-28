@@ -1,0 +1,8 @@
+footer.link ul li a {
+  color: white;
+  transition: color 0.5s;
+}
+
+footer.link ul li a:hover {
+  color: var(--primary-color);
+}

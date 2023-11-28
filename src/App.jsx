@@ -1,7 +1,5 @@
-// import Footer from './components/Footer'
-// import Navigation from './components/Navigation'
-
 import { Outlet } from 'react-router-dom'
+import Footer from './components/Footer'
 import Navigation from './components/Navigation'
 
 function App() {
@@ -11,6 +9,7 @@ function App() {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   )
 }
