@@ -1,3 +1,7 @@
+.stats {
+  padding-block: 4rem;
+}
+
 .heading .subHeading {
   display: block;
 }

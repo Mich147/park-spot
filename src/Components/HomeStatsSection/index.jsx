@@ -2,7 +2,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import styles from './styles.module.css'
 function HomeStatsSection() {
   return (
-    <section className="bg-dark py-5">
+    <section className={`${styles.stats} bg-dark`}>
       <Container>
         <Row className="align-items-center">
           <Col className="text-center">

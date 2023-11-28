@@ -17,7 +17,7 @@ function HomeOverviewSection() {
             </Row>
           </Col>
           <Col lg={4} className="mt-sm-5 mt-lg-0 d-flex justify-content-center">
-            <Image src={pressence} />
+            <Image src={pressence} className="img-fluid" />
           </Col>
         </Row>
       </Container>

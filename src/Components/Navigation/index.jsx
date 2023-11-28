@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 
 function Navigation() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" fixed="top">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
