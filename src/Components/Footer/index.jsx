@@ -1,4 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import styles from './styles.module.css'
 
 function Footer() {
@@ -10,13 +11,13 @@ function Footer() {
             <h5 className="font-weight-bold">QUESTIONS</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">WHO ARE WE?</a>
+                <Link to="/">WHO ARE WE?</Link>
               </li>
               <li>
-                <a href="#">HOW IT WORKS?</a>
+                <Link to="/">HOW IT WORKS?</Link>
               </li>
               <li>
-                <a href="#">FAQS</a>
+                <Link to="/">FAQS</Link>
               </li>
             </ul>
           </Col>
@@ -24,10 +25,10 @@ function Footer() {
             <h5 className="font-weight-bold">COLLABORATE WITH US</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">BE A PARTNER</a>
+                <Link to="/">BE A PARTNER</Link>
               </li>
               <li>
-                <a href="#">COLLABORATE WITH US</a>
+                <Link to="/">COLLABORATE WITH US</Link>
               </li>
             </ul>
           </Col>
@@ -35,10 +36,10 @@ function Footer() {
             <h5 className="font-weight-bold">CONTACT</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">OUR OFFICE</a>
+                <Link to="/">OUR OFFICE</Link>
               </li>
               <li>
-                <a href="#">HELP DESK</a>
+                <Link to="/">HELP DESK</Link>
               </li>
             </ul>
           </Col>
@@ -46,16 +47,16 @@ function Footer() {
             <h5 className="font-weight-bold">DOCUMENTATIONS</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">TERMS AND CONDITIONS OF SERVICE</a>
+                <Link to="/">TERMS AND CONDITIONS OF SERVICE</Link>
               </li>
               <li>
-                <a href="#">PRIVACY POLICY</a>
+                <Link to="/">PRIVACY POLICY</Link>
               </li>
               <li>
-                <a href="#">CANCELLATION CONDITIONS</a>
+                <Link to="/">CANCELLATION CONDITIONS</Link>
               </li>
               <li>
-                <a href="#">COOKIE POLICY</a>
+                <Link to="/">COOKIE POLICY</Link>
               </li>
             </ul>
           </Col>
