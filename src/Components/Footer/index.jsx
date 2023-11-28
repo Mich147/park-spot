@@ -61,9 +61,6 @@ function Footer() {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row></Row>
-      </Container>
     </footer>
   )
 }
