@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 
 function Navigation() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" fixed="top">
+    <Navbar expand="lg" className={`${styles.boxShadow} bg-body-tertiary`} fixed="top">
       <Container fluid>
         <LinkContainer to="/">
           <Navbar.Brand>
