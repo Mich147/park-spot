@@ -2,12 +2,16 @@
 // import Navigation from './components/Navigation'
 
 import { Outlet } from 'react-router-dom'
+import Navigation from './components/Navigation'
 
 function App() {
   return (
-    <main>
-      <Outlet />
-    </main>
+    <>
+      <Navigation />
+      <main>
+        <Outlet />
+      </main>
+    </>
   )
 }
 
