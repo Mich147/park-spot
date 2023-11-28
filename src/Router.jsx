@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 
-import { HomeScreen, HowItWorksScreen } from './Screens'
+import { HomeScreen, HowItWorksScreen, ListingScreen } from './Screens'
 import ErrorScreen from './Screens/ErrorScreen'
 
 const Router = () => {
@@ -18,6 +18,10 @@ const Router = () => {
         {
           path: '/how-it-works',
           element: <HowItWorksScreen />,
+        },
+        {
+          path: '/listing',
+          element: <ListingScreen />,
         },
       ],
     },
