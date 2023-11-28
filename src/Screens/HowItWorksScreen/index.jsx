@@ -1,5 +1,11 @@
+import VideoAd from '../../components/VideoAd'
+
 function HowItWorksScreen() {
-  return <div>HowItWorsScreen</div>
+  return (
+    <>
+      <VideoAd />
+    </>
+  )
 }
 
 export default HowItWorksScreen
