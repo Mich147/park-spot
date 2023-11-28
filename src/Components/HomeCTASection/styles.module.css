@@ -1,0 +1,14 @@
+.cta {
+  background: rgb(209, 157, 197);
+  background: linear-gradient(90deg, rgba(209, 157, 197, 1) 27%, rgba(91, 232, 255, 1) 71%);
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: bold;
+}
+
+.subHeading {
+  font-size: clamp(0.5rem, 3vw, 1.6rem);
+}

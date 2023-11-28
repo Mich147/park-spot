@@ -12,9 +12,9 @@ function HomPartnersSection() {
     <section className="partner py-5">
       <Container>
         <div className="sectionHeader text-center">
-          <h2 className={`${styles.heading}  text-uppercase`}>our partners</h2>
+          <h2 className={`${styles.heading} text-uppercase`}>our partners</h2>
         </div>
-        <Row className="py-5 align-items-center gap-3">
+        <Row className="py-5 justify-content-center align-items-center gap-3">
           <Col>
             <Image src={partner1} />
           </Col>
