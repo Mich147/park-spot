@@ -9,13 +9,13 @@ function Navigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <Image src={logo} alt="logo" width={150} />
+            <Image src={logo} alt="logo" width={190} />
           </Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+          <Nav className="mx-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
             <LinkContainer to="/">
               <Nav.Link className="text-capitalize">home</Nav.Link>
             </LinkContainer>
@@ -25,7 +25,6 @@ function Navigation() {
             <LinkContainer to="/listings">
               <Nav.Link className="text-capitalize">listings</Nav.Link>
             </LinkContainer>
-
             <LinkContainer to="/contact">
               <Nav.Link className="text-capitalize">contact</Nav.Link>
             </LinkContainer>
@@ -35,10 +34,14 @@ function Navigation() {
           </Nav>
           <div className="d-flex gap-4">
             <Button variant="outline-primary">Login</Button>
-            <Button variant="outline-primary">
-              Sign up
-              <NavDropdown></NavDropdown>
-            </Button>
+            <NavDropdown title="Sign Up" id="basic-nav-dropdown" className="btn btn-outline-primary">
+              <NavDropdown.Item href="#action/3.1" className="text-capitalize">
+                as user
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2" className="text-capitalize">
+                as parkner
+              </NavDropdown.Item>
+            </NavDropdown>
           </div>
         </Navbar.Collapse>
       </Container>
