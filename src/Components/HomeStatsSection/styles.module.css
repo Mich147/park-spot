@@ -1,0 +1,26 @@
+.statistics {
+  /* position: relative; */
+}
+
+.pos {
+  position: relative;
+}
+
+.heading .subHeading {
+  display: block;
+}
+
+.heading,
+.subHeading {
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: 3rem;
+  color: #14a8ff;
+}
+
+.subHeading {
+  font-size: 1.6rem !important;
+  color: #fff !important;
+}
