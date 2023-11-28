@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 
-import { ContactScreen, HomeScreen, HowItWorksScreen, ListingScreen } from './Screens'
+import { ContactScreen, HelpScreen, HomeScreen, HowItWorksScreen, ListingScreen } from './Screens'
 import ErrorScreen from './Screens/ErrorScreen'
 
 const Router = () => {
@@ -26,6 +26,10 @@ const Router = () => {
         {
           path: '/contact',
           element: <ContactScreen />,
+        },
+        {
+          path: '/help',
+          element: <HelpScreen />,
         },
       ],
     },
