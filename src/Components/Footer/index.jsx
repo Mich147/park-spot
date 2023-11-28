@@ -1,75 +1,67 @@
-import { Link } from 'react-router-dom'
-import Login from '../Login'
+import { Col, Container, Row } from 'react-bootstrap'
+import styles from './styles.module.css'
 
 function Footer() {
   return (
-    <>
-      <footer className="container-fluid bg-dark text-light py-4">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3 footer-container">
-              <h5 className="font-weight-bold">QUESTIONS</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <Link to="/">WHO ARE WE?</Link>
-                </li>
-                <li>
-                  <Link to="/">HOW IT WORKS?</Link>
-                </li>
-                <li>
-                  <Link to="/">FAQS</Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-3 footer-container">
-              <h5 className="font-weight-bold">COLLABORATE WITH US</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <Link to="/">BE A PARTNER</Link>
-                </li>
-                <li>
-                  <Link to="/">COLLABORATE WITH US</Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-3 footer-container">
-              <h5 className="font-weight-bold">CONTACT</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <Link to="/">OUR OFFICE</Link>
-                </li>
-                <li>
-                  <Link to="/">HELP DESK</Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-3 footer-container">
-              <h5 className="font-weight-bold">DOCUMENTATIONS</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <Link to="/">TERMS AND CONDITIONS OF SERVICE</Link>
-                </li>
-                <li>
-                  <Link to="/">PRIVACY POLICY</Link>
-                </li>
-                <li>
-                  <Link to="/">CANCELLATION CONDITIONS</Link>
-                </li>
-                <li>
-                  <Link to="/">COOKIE POLICY</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      {/* Login Modal */}
-      <Login />
-    </>
+    <footer className={`py-5 bg-dark text-light ${styles.link}`}>
+      <Container>
+        <Row>
+          <Col>
+            <h5 className="font-weight-bold">QUESTIONS</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="#">WHO ARE WE?</a>
+              </li>
+              <li>
+                <a href="#">HOW IT WORKS?</a>
+              </li>
+              <li>
+                <a href="#">FAQS</a>
+              </li>
+            </ul>
+          </Col>
+          <Col>
+            <h5 className="font-weight-bold">COLLABORATE WITH US</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="#">BE A PARTNER</a>
+              </li>
+              <li>
+                <a href="#">COLLABORATE WITH US</a>
+              </li>
+            </ul>
+          </Col>
+          <Col>
+            <h5 className="font-weight-bold">CONTACT</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="#">OUR OFFICE</a>
+              </li>
+              <li>
+                <a href="#">HELP DESK</a>
+              </li>
+            </ul>
+          </Col>
+          <Col>
+            <h5 className="font-weight-bold">DOCUMENTATIONS</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="#">TERMS AND CONDITIONS OF SERVICE</a>
+              </li>
+              <li>
+                <a href="#">PRIVACY POLICY</a>
+              </li>
+              <li>
+                <a href="#">CANCELLATION CONDITIONS</a>
+              </li>
+              <li>
+                <a href="#">COOKIE POLICY</a>
+              </li>
+            </ul>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   )
 }
 
