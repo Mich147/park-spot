@@ -24,8 +24,8 @@ function Navigation() {
             <LinkContainer to="/how-it-works">
               <Nav.Link className="text-uppercase fw-bold">how it works</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/listings">
-              <Nav.Link className="text-uppercase fw-bold">listings</Nav.Link>
+            <LinkContainer to="/listing">
+              <Nav.Link className="text-uppercase fw-bold">listing</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/contact">
               <Nav.Link className="text-uppercase fw-bold">contact</Nav.Link>
