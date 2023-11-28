@@ -1,5 +1,10 @@
+import Hero from '../../components/Hero'
 function HomeScreen() {
-  return <>HomeScreen</>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }
 
 export default HomeScreen
