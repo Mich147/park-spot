@@ -1,4 +1,5 @@
 import Hero from '../../components/Hero'
+import HomeOverviewSection from '../../components/HomeOverviewSection'
 import HomeStatsSection from '../../components/HomeStatsSection'
 
 function HomeScreen() {
@@ -6,6 +7,7 @@ function HomeScreen() {
     <>
       <Hero />
       <HomeStatsSection />
+      <HomeOverviewSection />
     </>
   )
 }
