@@ -1,5 +1,11 @@
+import HelpFaq from '../../components/HelpFaq'
+
 function HelpScreen() {
-  return <div>HelpScreen</div>
+  return (
+    <>
+      <HelpFaq />
+    </>
+  )
 }
 
 export default HelpScreen
