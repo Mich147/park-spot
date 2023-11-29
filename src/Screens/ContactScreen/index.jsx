@@ -1,5 +1,11 @@
+import ContactUs from '../../components/ContactUs'
+
 function ContactScreen() {
-  return <div>ContactScreen</div>
+  return (
+    <>
+      <ContactUs />
+    </>
+  )
 }
 
 export default ContactScreen
