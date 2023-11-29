@@ -39,12 +39,12 @@ function Navigation() {
               Login
             </Button>
             <NavDropdown title="Sign Up" id="basic-nav-dropdown" className={`${styles.logBtn} btn btn-outline-primary`}>
-              <NavDropdown.Item href="#action/3.1" className="text-capitalize">
-                as user
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className="text-capitalize">
-                as parkner
-              </NavDropdown.Item>
+              <LinkContainer to="/user">
+                <NavDropdown.Item className="text-capitalize">as user</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/parkner">
+                <NavDropdown.Item className="text-capitalize">as parkner</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </div>
         </Navbar.Collapse>
