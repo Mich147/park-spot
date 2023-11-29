@@ -8,11 +8,13 @@ function HelpFaq() {
   const [active, setActive] = useState(0)
 
   return (
-    <section className="faq my-5">
+    <section className="faq my-5 py-5">
       <Container>
         <Row>
           <Col lg={3}>
-            <h1 className="fs-5 mb-2 list-group list-group-item fw-bolder text-primary">Frequently Asked Questions</h1>
+            <h1 className="fs-5 mb-2 list-group list-group-item fw-bolder text-primary" onClick={() => setActive(0)}>
+              Frequently Asked Questions
+            </h1>
             <ListGroup as="ul">
               {faqItems.map((faq) => (
                 <HelpFaqItem key={`faq-${faq.id}`} faqObj={faq} isActive={active === faq.id} onClickItem={() => setActive(faq.id)} />
