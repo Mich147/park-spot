@@ -1,5 +1,11 @@
+import ListingList from '../../components/ListingList'
+
 function ListingScreen() {
-  return <div>ListingScreen</div>
+  return (
+    <>
+      <ListingList />
+    </>
+  )
 }
 
 export default ListingScreen
