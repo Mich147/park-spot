@@ -1,8 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 
-import { ContactScreen, HelpScreen, HomeScreen, HowItWorksScreen, ListingScreen } from './Screens'
-import ErrorScreen from './Screens/ErrorScreen'
+import { ContactScreen, ErrorScreen, HelpScreen, HomeScreen, HowItWorksScreen, ListingScreen, SignupParknerScreen, SignupUserScreen } from './Screens'
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -30,6 +29,14 @@ const Router = () => {
         {
           path: '/help',
           element: <HelpScreen />,
+        },
+        {
+          path: '/user',
+          element: <SignupUserScreen />,
+        },
+        {
+          path: '/parkner',
+          element: <SignupParknerScreen />,
         },
       ],
     },
