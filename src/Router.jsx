@@ -31,11 +31,11 @@ const Router = () => {
           element: <HelpScreen />,
         },
         {
-          path: '/user',
+          path: '/signup',
           element: <SignupUserScreen />,
         },
         {
-          path: '/parkner',
+          path: '/parkner-signup',
           element: <SignupParknerScreen />,
         },
       ],
