@@ -23,21 +23,3 @@
   border-radius: 0.5rem;
   padding: 1rem 0.1rem;
 }
-
-.listingForm > * {
-  flex: 1;
-}
-
-.listingForm button {
-  flex: 0.4;
-}
-
-/* .heroForm input[type='text']::placeholder {
-  color: #000 !important;
-} */
-
-@media (width <= 62em) {
-  .listingForm > * {
-    margin-bottom: 1rem;
-  }
-}
