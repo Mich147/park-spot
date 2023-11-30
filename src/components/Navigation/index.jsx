@@ -11,7 +11,7 @@ function Navigation() {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <Image src={logo} alt="logo" width={190} />
+            <Image src={logo} alt="logo" width={150} />
           </Navbar.Brand>
         </LinkContainer>
 
