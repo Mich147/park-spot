@@ -3,9 +3,13 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 import logo from '../../assets/logo.png'
 
+import { useState } from 'react'
+import Login from '../Login'
 import styles from './styles.module.css'
 
 function Navigation() {
+  const [modalShow, setModalShow] = useState(false)
+
   return (
     <Navbar expand="lg" className={`${styles.boxShadow} bg-body-tertiary`} fixed="top">
       <Container>
@@ -35,7 +39,7 @@ function Navigation() {
             </LinkContainer>
           </Nav>
           <div className="d-flex gap-4">
-            <Button variant="outline-primary" className={styles.logBtn}>
+            <Button variant="outline-primary" className={styles.logBtn} onClick={() => setModalShow(true)}>
               Login
             </Button>
             <NavDropdown title="Sign Up" id="basic-nav-dropdown" className={`${styles.logBtn} btn btn-outline-primary`}>
@@ -49,6 +53,8 @@ function Navigation() {
           </div>
         </Navbar.Collapse>
       </Container>
+
+      <Login modalShow={modalShow} onHide={setModalShow} />
     </Navbar>
   )
 }
