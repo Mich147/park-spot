@@ -18,3 +18,26 @@
   /* font-size: 2.6rem !important; */
   font-size: clamp(2rem, 4vw, 3rem) !important;
 }
+
+.heroForm {
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.listingForm > * {
+  flex: 1;
+}
+
+.listingForm button {
+  flex: 0.4;
+}
+
+/* .heroForm input[type='text']::placeholder {
+  color: #000 !important;
+} */
+
+@media (width <= 62em) {
+  .listingForm > * {
+    margin-bottom: 1rem;
+  }
+}
