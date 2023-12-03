@@ -1,46 +1,17 @@
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+import useForm from '../../hook/useForm'
 import styles from './styles.module.css'
 
 function UserSignUp() {
-  const [user, setUser] = useState({})
-  const [error, setError] = useState({})
-
+  const { error, handleChange, handleSubmit } = useForm()
   const userRef = useRef(null)
 
   useEffect(() => {
     userRef.current.focus()
   }, [])
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    const message = {}
-
-    if (!user.username) {
-      message.username = 'Please provide username'
-    }
-
-    if (!user.email) {
-      message.email = 'Please provide email'
-    }
-    if (!user.password) {
-      message.password = 'Please provide password'
-    }
-
-    if (!user.confirmPassword) {
-      message.confirmPassword = 'Please confirm password'
-    } else if (user.password !== user.confirmPassword) {
-      message.confirmPassword = 'Password did not matched'
-    }
-
-    setError(message)
-  }
-
-  function handleChange(e) {
-    const { name, value } = e.target
-    setUser((prev) => ({ ...prev, [name]: value }))
-  }
   return (
     <section className="signUp py-5">
       <Container>
