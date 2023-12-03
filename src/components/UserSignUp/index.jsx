@@ -22,26 +22,38 @@ function UserSignUp() {
               <Form.Group className="">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" ref={userRef} name="username" onChange={handleChange} />
-                <p style={{ color: 'crimson' }}> {error.username && error.username}</p>
+                <p className="mt-2" style={{ color: 'crimson' }}>
+                  {' '}
+                  {error.username && error.username}
+                </p>
                 {/* {error.username && <p className=''>{error.username}</p>} */}
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" name="email" autoComplete="off" onChange={handleChange} />
-                <p style={{ color: 'crimson' }}> {error.email && error.email}</p>
+                <p className="mt-2" style={{ color: 'crimson' }}>
+                  {' '}
+                  {error.email && error.email}
+                </p>
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name="password" autoComplete="off" onChange={handleChange} />
-                <p style={{ color: 'crimson' }}> {error.password && error.password}</p>
+                <p className="mt-2" style={{ color: 'crimson' }}>
+                  {' '}
+                  {error.password && error.password}
+                </p>
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control type="password" name="confirmPassword" onChange={handleChange} />
-                <p style={{ color: 'crimson' }}> {error.confirmPassword && error.confirmPassword}</p>
+                <p className="mt-2" style={{ color: 'crimson' }}>
+                  {' '}
+                  {error.confirmPassword && error.confirmPassword}
+                </p>
               </Form.Group>
 
               <Button variant="primary" type="submit">
