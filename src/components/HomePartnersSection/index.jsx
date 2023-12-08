@@ -14,18 +14,18 @@ function HomePartnersSection() {
         <div className="sectionHeader text-center">
           <h2 className={`${styles.heading} text-uppercase`}>our partners</h2>
         </div>
-        <Row className="py-5 justify-content-center align-items-center gap-3">
-          <Col>
-            <Image src={partner1} />
+        <Row className="py-5 justify-content-center align-items-center">
+          <Col lg={3} className="d-flex justify-content-center">
+            <Image className="img-fluid" src={partner1} />
           </Col>
-          <Col>
-            <Image src={partner2} />
+          <Col lg={3} className="d-flex justify-content-center">
+            <Image className="img-fluid" src={partner2} />
           </Col>
-          <Col>
-            <Image src={partner3} />
+          <Col lg={3} className="d-flex justify-content-center">
+            <Image className="img-fluid" src={partner3} />
           </Col>
-          <Col>
-            <Image src={partner4} />
+          <Col lg={3} className="d-flex justify-content-center">
+            <Image className="img-fluid" src={partner4} />
           </Col>
         </Row>
       </Container>
