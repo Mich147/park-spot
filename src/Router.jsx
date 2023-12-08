@@ -1,7 +1,16 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 
-import { ContactScreen, ErrorScreen, HelpScreen, HomeScreen, HowItWorksScreen, ListingScreen, SignupParknerScreen, SignupUserScreen } from './Screens'
+import {
+  ContactScreen,
+  ErrorScreen,
+  HelpScreen,
+  HomeScreen,
+  HowItWorksScreen,
+  ListingScreen,
+  SignupParknerScreen,
+  SignupUserScreen,
+} from './Screens'
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -11,31 +20,32 @@ const Router = () => {
       errorElement: <ErrorScreen />,
       children: [
         {
+          index: true,
           path: '/',
           element: <HomeScreen />,
         },
         {
-          path: '/how-it-works',
+          path: 'how-it-works',
           element: <HowItWorksScreen />,
         },
         {
-          path: '/listing',
+          path: 'listing',
           element: <ListingScreen />,
         },
         {
-          path: '/contact',
+          path: 'contact',
           element: <ContactScreen />,
         },
         {
-          path: '/help',
+          path: 'help',
           element: <HelpScreen />,
         },
         {
-          path: '/signup',
+          path: 'signup',
           element: <SignupUserScreen />,
         },
         {
-          path: '/parkner-signup',
+          path: 'parkner-signup',
           element: <SignupParknerScreen />,
         },
       ],

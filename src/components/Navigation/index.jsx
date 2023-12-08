@@ -24,9 +24,11 @@ function Navigation() {
       fixed="top"
     >
       <Container>
-        <Navbar.Brand href="/">
-          <Image src={logo} alt="logo" width={150} />
-        </Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>
+            <Image src={logo} alt="logo" width={150} />
+          </Navbar.Brand>
+        </LinkContainer>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
