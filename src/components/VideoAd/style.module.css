@@ -1,0 +1,10 @@
+.vidad {
+  width: 100%;
+  height: 25vh;
+}
+
+@media (width >= 50em) {
+  .vidad {
+    height: 70vh;
+  }
+}
