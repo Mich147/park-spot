@@ -48,6 +48,9 @@ function Navigation() {
             <LinkContainer to="/blog">
               <Nav.Link className="text-uppercase fw-bold">blog</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/blog">
+              <Nav.Link className="text-uppercase fw-bold">resources</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/listing">
               <Nav.Link className="text-uppercase fw-bold">listing</Nav.Link>
             </LinkContainer>
