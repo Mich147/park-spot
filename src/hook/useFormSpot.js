@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 function useFormSpot() {
   const [form, setForm] = useState({
-    username: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -18,12 +17,14 @@ function useFormSpot() {
     return function (e) {
       e.preventDefault()
       const formErrors = validate(form)
-      console.log(Object.keys(formErrors))
+
       if (Object.keys(formErrors).length > 0) {
         return setErrors(formErrors)
+      } else {
+        setErrors({})
+        setForm({})
+        return callback(form, e)
       }
-
-      return callback(form, e)
     }
   }
 
@@ -35,9 +36,9 @@ export default useFormSpot
 function validate(form) {
   let errors = {}
 
-  if (!form.username) {
-    errors.username = 'username is required'
-  }
+  // if (!form.username) {
+  //   errors.username = 'username is required'
+  // }
   if (!form.email) {
     errors.email = 'email is required'
   }
@@ -50,8 +51,6 @@ function validate(form) {
     errors.confirmPassword = 'Please confirm password'
   } else if (form.password !== form.confirmPassword) {
     errors.confirmPassword = 'Password did not matched'
-  } else {
-    errors.confirmPassword = ''
   }
 
   return errors
