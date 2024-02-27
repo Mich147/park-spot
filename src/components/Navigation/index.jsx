@@ -11,11 +11,14 @@ import { LinkContainer } from 'react-router-bootstrap'
 import logo from '../../assets/logo.png'
 
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import Login from '../Login'
 import styles from './styles.module.css'
 
 function Navigation() {
   const [modalShow, setModalShow] = useState(false)
+
+  const auth = useSelector((state) => state.auth)
 
   return (
     <Navbar
@@ -55,31 +58,48 @@ function Navigation() {
               <Nav.Link className="text-uppercase fw-bold">help</Nav.Link>
             </LinkContainer>
           </Nav>
-          <div className="d-flex gap-4">
-            <Button
-              variant="outline-primary"
-              className={styles.logBtn}
-              onClick={() => setModalShow(true)}
-            >
-              Login
-            </Button>
-            <NavDropdown
-              title="Sign Up"
-              id="basic-nav-dropdown"
-              className={`${styles.logBtn} btn btn-outline-primary`}
-            >
-              <LinkContainer to="/signup">
-                <NavDropdown.Item className="text-capitalize">
-                  as user
-                </NavDropdown.Item>
-              </LinkContainer>
-              <LinkContainer to="/parkner-signup">
-                <NavDropdown.Item className="text-capitalize">
-                  as parkner
-                </NavDropdown.Item>
-              </LinkContainer>
-            </NavDropdown>
-          </div>
+
+          {auth.user ? (
+            <div className="d-flex gap-4">
+              <Nav>
+                <LinkContainer to="/dashboard">
+                  <Nav.Link className="text-uppercase fw-bold">
+                    Dashboard
+                  </Nav.Link>
+                </LinkContainer>
+              </Nav>
+
+              <Button variant="outline-primary" className={styles.logBtn}>
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <div className="d-flex gap-4">
+              <Button
+                variant="outline-primary"
+                className={styles.logBtn}
+                onClick={() => setModalShow(true)}
+              >
+                Login
+              </Button>
+              <NavDropdown
+                title="Sign Up"
+                id="basic-nav-dropdown"
+                className={`${styles.logBtn} btn btn-outline-primary`}
+              >
+                <LinkContainer to="/signup">
+                  <NavDropdown.Item className="text-capitalize">
+                    as user
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/parkner-signup">
+                  <NavDropdown.Item className="text-capitalize">
+                    as parkner
+                  </NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+            </div>
+          )}
         </Navbar.Collapse>
       </Container>
 
