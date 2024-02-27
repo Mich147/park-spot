@@ -1,68 +1,112 @@
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
 
-import { useEffect, useRef } from 'react'
-import useForm from '../../hook/useForm'
+import useFormSpot from '../../hook/useFormSpot'
+import useSignup from '../../hook/useSignup'
 import styles from './styles.module.css'
 
 function UserSignUp() {
-  const { error, handleChange, handleSubmit } = useForm()
-  const userRef = useRef(null)
+  const { form, handleSubmit, handleChange, errors } = useFormSpot()
+  const { email, password, confirmPassword } = form
+  const { signUp, status } = useSignup()
 
-  useEffect(() => {
-    userRef.current.focus()
-  }, [])
+  const isSigning = status === 'loading'
+  const isSigningSuccess = status === 'success'
+
+  async function onSubmit(data) {
+    delete data.confirmPassword
+    await signUp(data)
+    localStorage.clear()
+  }
 
   return (
     <section className="signUp py-5">
       <Container>
         <Row className={` mx-auto justify-content-center`}>
           <Col lg={8}>
-            <h1 className="text-center mb-4">Sign Up As User</h1>
-            <Form className={`${styles.formBody} py-4 px-3`} onSubmit={handleSubmit}>
-              <Form.Group className="">
+            {isSigningSuccess ? (
+              <h1 className="text-center mb-4">You may login now</h1>
+            ) : (
+              <>
+                <h1 className="text-center mb-4">Sign Up As User</h1>
+                <Form
+                  className={`${styles.formBody} py-4 px-3`}
+                  onSubmit={handleSubmit(onSubmit)}
+                >
+                  {/* <Form.Group className="mb-3" controlId="validationCustom01">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" ref={userRef} name="username" onChange={handleChange} />
-                <p className="mt-2" style={{ color: 'crimson' }}>
-                  {' '}
-                  {error.username && error.username}
-                </p>
-                {/* {error.username && <p className=''>{error.username}</p>} */}
-              </Form.Group>
+                <Form.Control
+                  type="text"
+                  name="username"
+                  value={username}
+                  isInvalid={!!errors.username}
+                  onChange={(e) => handleChange(e)}
+                />
 
-              <Form.Group className="mb-3">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" name="email" autoComplete="off" onChange={handleChange} />
-                <p className="mt-2" style={{ color: 'crimson' }}>
-                  {' '}
-                  {error.email && error.email}
-                </p>
-              </Form.Group>
+                <Form.Control.Feedback type="invalid">
+                  {errors?.username}
+                </Form.Control.Feedback>
+              </Form.Group> */}
 
-              <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" name="password" autoComplete="off" onChange={handleChange} />
-                <p className="mt-2" style={{ color: 'crimson' }}>
-                  {' '}
-                  {error.password && error.password}
-                </p>
-              </Form.Group>
+                  <Form.Group className="mb-3" controlId="validationCustom02">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      value={email || ''}
+                      isInvalid={!!errors?.email}
+                      onChange={(e) => handleChange(e)}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors?.email}
+                    </Form.Control.Feedback>
+                  </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" name="confirmPassword" onChange={handleChange} />
-                <p className="mt-2" style={{ color: 'crimson' }}>
-                  {' '}
-                  {error.confirmPassword && error.confirmPassword}
-                </p>
-              </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      name="password"
+                      value={password || ''}
+                      isInvalid={!!errors?.password}
+                      onChange={(e) => handleChange(e)}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors?.password}
+                    </Form.Control.Feedback>
+                  </Form.Group>
 
-              <Button variant="primary" type="submit">
+                  <Form.Group className="mb-3">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      name="confirmPassword"
+                      value={confirmPassword || ''}
+                      isInvalid={!!errors?.confirmPassword}
+                      onChange={(e) => handleChange(e)}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors?.confirmPassword}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Button variant="primary" type="submit">
+                    {isSigning ? (
+                      <Spinner animation="border" role="status" size="sm">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    ) : (
+                      'Sign Up'
+                    )}
+                  </Button>
+                  {/* <Button variant="primary" type="submit">
                 Sign Up
-              </Button>
-            </Form>
-            <p className="mt-3 text-center">
-              Already have an account? <a href="login.html">Log in</a>
-            </p>
+              </Button> */}
+                </Form>
+                <p className="mt-3 text-center">
+                  Already have an account? <a href="login.html">Log in</a>
+                </p>
+              </>
+            )}
           </Col>
         </Row>
       </Container>
