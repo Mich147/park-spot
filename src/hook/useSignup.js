@@ -5,8 +5,8 @@ function useSignup() {
   const [status, setStatus] = useState('idle')
 
   async function signUp(data) {
-    setStatus('loading')
     try {
+      setStatus('loading')
       //fetch data here
       await createUser(data)
       setStatus('success')
