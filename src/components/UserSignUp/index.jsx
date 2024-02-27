@@ -1,8 +1,9 @@
 import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
 
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getTheUser } from '../../features/auth/auth.slice'
 import useFormSpot from '../../hook/useFormSpot'
 import useSignup from '../../hook/useSignup'
 import styles from './styles.module.css'
@@ -11,6 +12,8 @@ function UserSignUp() {
   const { form, handleSubmit, handleChange, errors } = useFormSpot()
   const { email, password, confirmPassword } = form
   const { signUp, status } = useSignup()
+
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
   const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth)
@@ -25,10 +28,15 @@ function UserSignUp() {
   }
 
   useEffect(() => {
+    if (isUserLoggedIn === null) {
+      dispatch(getTheUser())
+      // console.log('hello')
+      // navigate('/dashboard')
+    }
     if (isUserLoggedIn) {
       navigate('/dashboard')
     }
-  }, [isUserLoggedIn, navigate])
+  }, [isUserLoggedIn, navigate, dispatch])
 
   if (isLoading) {
     return (

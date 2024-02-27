@@ -41,7 +41,7 @@ ListItem.propTypes = {
   img: PropTypes.string,
   location: PropTypes.string,
   parkType: PropTypes.string,
-  carType: PropTypes.array,
+  carType: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   distance: PropTypes.number,
   ratings: PropTypes.number,
 }
