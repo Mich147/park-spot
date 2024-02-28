@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import {
   getTheUser as getTheUserApi,
   login as loginApi,
-  logout as logoutApi,
 } from '../../services/apiAuth'
 
 const user = JSON.parse(
@@ -25,15 +24,6 @@ const initialState = {
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
     return await loginApi(user)
-  } catch (error) {
-    console.error(error)
-    return thunkAPI.rejectWithValue(error.message)
-  }
-})
-
-export const logout = createAsyncThunk('auth/logout', async (thunkAPI) => {
-  try {
-    return await logoutApi()
   } catch (error) {
     console.error(error)
     return thunkAPI.rejectWithValue(error.message)
