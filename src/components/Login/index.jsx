@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 import { Button, Form, Modal, Spinner } from 'react-bootstrap'
+import toast from 'react-hot-toast'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../features/auth/auth.slice'
@@ -9,7 +11,7 @@ function Login({ modalShow, onHide }) {
   const { handleChange, handleSubmit, form, errors } = useFormSpot()
   const { email, password } = form
 
-  const { isLoading } = useSelector((state) => state.auth)
+  const { isLoading, message, isError } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
@@ -22,6 +24,12 @@ function Login({ modalShow, onHide }) {
       navigate('/dashboard')
     }, 1500)
   }
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+  }, [isError, message])
 
   return (
     <Modal show={modalShow} size="md" backdrop="static">

@@ -14,14 +14,10 @@ const initialState = {
   user: user ? user : null,
   isLoading: false,
   isUserLoggedIn: null,
+  isError: false,
   isLogout: false,
   message: '',
 }
-// const initialState = {
-//   user: null,
-//   isLoading: false,
-//   message: '',
-// }
 
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
@@ -68,6 +64,7 @@ const authSlice = createSlice({
         state.isLoading = false
         state.isUserLoggedIn = false
         state.message = action.payload
+        state.isError = true
         state.user = null
       })
       .addCase(getTheUser.pending, (state) => {
