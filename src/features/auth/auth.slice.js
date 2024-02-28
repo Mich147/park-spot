@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import {
   getTheUser as getTheUserApi,
   login as loginApi,
+  logout as logoutApi,
 } from '../../services/apiAuth'
 
 const user = JSON.parse(
@@ -13,6 +14,7 @@ const initialState = {
   user: user ? user : null,
   isLoading: false,
   isUserLoggedIn: null,
+  isLogout: false,
   message: '',
 }
 // const initialState = {
@@ -33,6 +35,15 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 export const getTheUser = createAsyncThunk('auth/user', async (thunkAPI) => {
   try {
     return await getTheUserApi()
+  } catch (error) {
+    console.error(error)
+    return thunkAPI.rejectWithValue(error.message)
+  }
+})
+
+export const logout = createAsyncThunk('auth/logout', async (thunkAPI) => {
+  try {
+    return await logoutApi()
   } catch (error) {
     console.error(error)
     return thunkAPI.rejectWithValue(error.message)
@@ -73,20 +84,22 @@ const authSlice = createSlice({
         state.message = action.payload
         state.user = null
       })
-    // .addCase(logout.pending, (state) => {
-    //   state.isLoading = true
-    // })
-    // .addCase(logout.fulfilled, (state, action) => {
-    //   state.isLoading = false
-    //   state.isUserLoggedIn = true
-    //   state.user = action.payload
-    // })
-    // .addCase(logout.rejected, (state, action) => {
-    //   state.isLoading = false
-    //   state.isUserLoggedIn = false
-    //   state.message = action.payload
-    //   state.user = null
-    // })
+      .addCase(logout.pending, (state) => {
+        // state.isLoading = true
+        state.isLogout = true
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        // state.isLoading = false
+        state.isLogout = false
+        state.isUserLoggedIn = false
+        state.user = action.payload
+      })
+      .addCase(logout.rejected, (state, action) => {
+        // state.isLoading = false
+        state.isLogout = false
+        state.message = action.payload
+        state.user = null
+      })
   },
 })
 
