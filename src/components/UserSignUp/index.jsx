@@ -1,5 +1,9 @@
 import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
 
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { getTheUser } from '../../features/auth/auth.slice'
 import useFormSpot from '../../hook/useFormSpot'
 import useSignup from '../../hook/useSignup'
 import styles from './styles.module.css'
@@ -9,6 +13,11 @@ function UserSignUp() {
   const { email, password, confirmPassword } = form
   const { signUp, status } = useSignup()
 
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+  const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth)
+
   const isSigning = status === 'loading'
   const isSigningSuccess = status === 'success'
 
@@ -16,6 +25,27 @@ function UserSignUp() {
     delete data.confirmPassword
     await signUp(data)
     localStorage.clear()
+  }
+
+  useEffect(() => {
+    if (isUserLoggedIn === null) {
+      dispatch(getTheUser())
+      // console.log('hello')
+      // navigate('/dashboard')
+    }
+    if (isUserLoggedIn) {
+      navigate('/dashboard')
+    }
+  }, [isUserLoggedIn, navigate, dispatch])
+
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    )
   }
 
   return (
@@ -32,21 +62,6 @@ function UserSignUp() {
                   className={`${styles.formBody} py-4 px-3`}
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  {/* <Form.Group className="mb-3" controlId="validationCustom01">
-                <Form.Label>Username</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="username"
-                  value={username}
-                  isInvalid={!!errors.username}
-                  onChange={(e) => handleChange(e)}
-                />
-
-                <Form.Control.Feedback type="invalid">
-                  {errors?.username}
-                </Form.Control.Feedback>
-              </Form.Group> */}
-
                   <Form.Group className="mb-3" controlId="validationCustom02">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control

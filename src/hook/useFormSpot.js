@@ -1,11 +1,7 @@
 import { useState } from 'react'
 
 function useFormSpot() {
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-  })
+  const [form, setForm] = useState({})
   const [errors, setErrors] = useState({})
 
   function handleChange(e) {
@@ -16,10 +12,12 @@ function useFormSpot() {
   function handleSubmit(callback) {
     return function (e) {
       e.preventDefault()
-      const formErrors = validate(form)
+      const signupErrors = validate(form)
 
-      if (Object.keys(formErrors).length > 0) {
-        return setErrors(formErrors)
+      if (Object.keys(signupErrors).length === 3) {
+        setErrors(signupErrors)
+      } else if (Object.keys(signupErrors).length === 2) {
+        setErrors(signupErrors)
       } else {
         setErrors({})
         setForm({})
@@ -36,9 +34,6 @@ export default useFormSpot
 function validate(form) {
   let errors = {}
 
-  // if (!form.username) {
-  //   errors.username = 'username is required'
-  // }
   if (!form.email) {
     errors.email = 'email is required'
   }
