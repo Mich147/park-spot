@@ -16,8 +16,11 @@ function Login({ modalShow, onHide }) {
 
   function onSubmit(data) {
     dispatch(login(data))
-    onHide(false)
-    navigate('/dashboard')
+
+    setTimeout(() => {
+      onHide(false)
+      navigate('/dashboard')
+    }, 1500)
   }
 
   return (

@@ -9,7 +9,6 @@ function PrivateRoute({ children }) {
   const dispatch = useDispatch()
 
   const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth)
-  console.log(isUserLoggedIn)
 
   useEffect(() => {
     dispatch(getTheUser())
