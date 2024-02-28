@@ -39,7 +39,7 @@ export async function login({ email, password }) {
 
   if (error) {
     console.error(error.message)
-    throw new Error('Could not login')
+    throw new Error(error.message)
   }
 
   return data
