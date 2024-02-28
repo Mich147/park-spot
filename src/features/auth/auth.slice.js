@@ -18,11 +18,6 @@ const initialState = {
   isLogout: false,
   message: '',
 }
-// const initialState = {
-//   user: null,
-//   isLoading: false,
-//   message: '',
-// }
 
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
