@@ -44,11 +44,3 @@ export async function login({ email, password }) {
 
   return data
 }
-
-export async function logout() {
-  const { error } = await supabase.auth.signOut()
-  if (error) {
-    console.error(error.message)
-    throw new Error('Could not logout something went wrong')
-  }
-}
