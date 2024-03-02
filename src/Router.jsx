@@ -20,7 +20,6 @@ import {
   HomeScreen,
   HowItWorksScreen,
   ListingScreen,
-  SignupParknerScreen,
   SignupUserScreen,
 } from './Screens'
 import DashboardUserScreen from './Screens/DashboardUserScreen'
@@ -36,7 +35,7 @@ const Router = () => {
           <Route path="contact" element={<ContactScreen />} />
           <Route path="help" element={<HelpScreen />} />
           <Route path="signup" element={<SignupUserScreen />} />
-          <Route path="parkner-signup" element={<SignupParknerScreen />} />
+          {/* <Route path="parkner-signup" element={<SignupParknerScreen />} /> */}
 
           <Route
             path="dashboard/*"
