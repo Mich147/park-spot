@@ -1,6 +1,6 @@
 .header {
-  /* background-image: url('../../assets/images/hero.jpg'); */
-  background-image: url('hero.jpg');
+  background-image: url('../../assets/hero.jpg');
+  /* background-image: url('hero.jpg'); */
   background-size: cover;
   color: #fff;
 }
