@@ -5,11 +5,39 @@ import cx from 'classnames'
 
 import styles from './styles.module.css'
 
-function HomeFilterIcons({ name, icon, isSelect, onItemSelect }) {
+type HomeFilterIconsProps = {
+  isSelect: boolean
+  onItemSelect: () => void
+  name: string
+  icon: string
+}
+
+function HomeFilterIcons({
+  name,
+  icon,
+  isSelect,
+  onItemSelect,
+}: HomeFilterIconsProps) {
   return (
     <div>
       <InputGroup className="mb-3">
-        <Form.Check type="checkbox" checked={isSelect} className={styles.helloInput} id={name} label={<Image src={icon} className={`${isSelect ? cx(styles.iconBox, styles.activeIconBox) : styles.iconBox} img-fluid`} />} onChange={onItemSelect} />
+        <Form.Check
+          type="checkbox"
+          checked={isSelect}
+          className={styles.helloInput}
+          id={name}
+          label={
+            <Image
+              src={icon}
+              className={`${
+                isSelect
+                  ? cx(styles.iconBox, styles.activeIconBox)
+                  : styles.iconBox
+              } img-fluid`}
+            />
+          }
+          onChange={onItemSelect}
+        />
       </InputGroup>
     </div>
   )

@@ -1,52 +1,33 @@
-import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { getTheUser } from '../../features/auth/auth.slice'
-import useFormSpot from '../../hook/useFormSpot'
-import useSignup from '../../hook/useSignup'
+import { useForm } from 'react-hook-form'
 import styles from './styles.module.css'
 
+type Inputs = {
+  email: string
+  password: string
+  confirmPassword: string
+}
+
 function UserSignUp() {
-  const { form, handleSubmit, handleChange, errors } = useFormSpot()
-  const { email, password, confirmPassword } = form
-  const { signUp, status } = useSignup()
+  const { register, handleSubmit, formState, watch } = useForm<Inputs>()
+  const { errors } = formState
 
-  const dispatch = useDispatch()
-
-  const navigate = useNavigate()
-  const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth)
-
-  const isSigning = status === 'loading'
-  const isSigningSuccess = status === 'success'
-
-  async function onSubmit(data) {
-    delete data.confirmPassword
-    await signUp(data)
-    localStorage.clear()
+  function registerHandler(data: Inputs) {
+    console.log(data)
   }
 
-  useEffect(() => {
-    if (isUserLoggedIn === null) {
-      dispatch(getTheUser())
-      // console.log('hello')
-      // navigate('/dashboard')
-    }
-    if (isUserLoggedIn) {
-      navigate('/dashboard')
-    }
-  }, [isUserLoggedIn, navigate, dispatch])
+  // if (isLoading) {
+  //   return (
+  //     <div className="d-flex justify-content-center">
+  //       <Spinner animation="border" role="status">
+  //         <span className="visually-hidden">Loading...</span>
+  //       </Spinner>
+  //     </div>
+  //   )
+  // }
 
-  if (isLoading) {
-    return (
-      <div className="d-flex justify-content-center">
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </div>
-    )
-  }
+  const isSigningSuccess: boolean = false
 
   return (
     <section className="signUp py-5">
@@ -59,20 +40,21 @@ function UserSignUp() {
               <>
                 <h1 className="text-center mb-4">Sign Up As User</h1>
                 <Form
+                  noValidate
                   className={`${styles.formBody} py-4 px-3`}
-                  onSubmit={handleSubmit(onSubmit)}
+                  onSubmit={handleSubmit(registerHandler)}
                 >
                   <Form.Group className="mb-3" controlId="validationCustom02">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
                       type="email"
-                      name="email"
-                      value={email || ''}
-                      isInvalid={!!errors?.email}
-                      onChange={(e) => handleChange(e)}
+                      {...register('email', {
+                        required: 'Email is required',
+                      })}
+                      isInvalid={!!errors.email}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors?.email}
+                      {errors?.email && errors?.email.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 
@@ -80,13 +62,13 @@ function UserSignUp() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                       type="password"
-                      name="password"
-                      value={password || ''}
-                      isInvalid={!!errors?.password}
-                      onChange={(e) => handleChange(e)}
+                      {...register('password', {
+                        required: 'Password is required',
+                      })}
+                      isInvalid={!!errors.password}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors?.password}
+                      {errors?.password && errors?.password.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 
@@ -94,32 +76,26 @@ function UserSignUp() {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                       type="password"
-                      name="confirmPassword"
-                      value={confirmPassword || ''}
-                      isInvalid={!!errors?.confirmPassword}
-                      onChange={(e) => handleChange(e)}
+                      {...register('confirmPassword', {
+                        required: 'Please confirm your password',
+                        validate: (val: string) => {
+                          if (watch('password') !== val) {
+                            return 'Password did not match'
+                          }
+                        },
+                      })}
+                      isInvalid={!!errors.confirmPassword}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors?.confirmPassword}
+                      {errors?.confirmPassword &&
+                        errors?.confirmPassword.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 
                   <Button variant="primary" type="submit">
-                    {isSigning ? (
-                      <Spinner animation="border" role="status" size="sm">
-                        <span className="visually-hidden">Loading...</span>
-                      </Spinner>
-                    ) : (
-                      'Sign Up'
-                    )}
+                    Sign Up
                   </Button>
-                  {/* <Button variant="primary" type="submit">
-                Sign Up
-              </Button> */}
                 </Form>
-                <p className="mt-3 text-center">
-                  Already have an account? <a href="login.html">Log in</a>
-                </p>
               </>
             )}
           </Col>

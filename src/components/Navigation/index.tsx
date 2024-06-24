@@ -15,17 +15,18 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getTheUser, logout } from '../../features/auth/auth.slice'
+import { AppDispatch, RootState } from '../../store'
 import Login from '../Login'
 import styles from './styles.module.css'
 
 function Navigation() {
-  const [modalShow, setModalShow] = useState(false)
+  const [modalShow, setModalShow] = useState<boolean>(false)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
 
   const { isLoading, isUserLoggedIn, isLogout } = useSelector(
-    (state) => state.auth
+    (state: RootState) => state.auth
   )
 
   function handleClick() {

@@ -8,3 +8,19 @@ export type FAQItemTypes = {
   question: string
   answer: string
 }
+
+// export type IconTypes = {
+//   id: number
+//   name: string
+//   icon: string
+// }
+
+export type ListingItemTypes = {
+  id: string
+  location: string
+  parkType: string
+  distance: number
+  carType: string[]
+  ratings: number
+  img: string
+}

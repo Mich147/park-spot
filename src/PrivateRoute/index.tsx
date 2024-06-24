@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { ReactNode, useEffect } from 'react'
 import { Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -31,10 +30,6 @@ function PrivateRoute({ children }: { children: ReactNode }) {
 
   return isUserLoggedIn ? children : <Navigate to="/signup" replace />
   // return user && children
-}
-
-PrivateRoute.propTypes = {
-  children: PropTypes.element,
 }
 
 export default PrivateRoute

@@ -1,8 +1,17 @@
 import { Button, Card, Col, ListGroup } from 'react-bootstrap'
+import { ListingItemTypes } from '../../types'
 
-import PropTypes from 'prop-types'
+type ListItemProps = ListingItemTypes
 
-function ListItem({ img, location, parkType, carType, distance, ratings }) {
+function ListItem({
+  img,
+  location,
+  parkType,
+  carType,
+  distance,
+  ratings,
+}: ListItemProps) {
+  console.log(carType)
   return (
     <Col lg={4} className="my-3">
       <Card>
@@ -35,15 +44,6 @@ function ListItem({ img, location, parkType, carType, distance, ratings }) {
       </div>
     </Col>
   )
-}
-
-ListItem.propTypes = {
-  img: PropTypes.string,
-  location: PropTypes.string,
-  parkType: PropTypes.string,
-  carType: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  distance: PropTypes.number,
-  ratings: PropTypes.number,
 }
 
 export default ListItem

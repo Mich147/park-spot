@@ -1,4 +1,18 @@
-import { park1, park10, park11, park12, park13, park2, park3, park4, park5, park6, park7, park8, park9 } from '../../assets/images/listing-assets'
+import {
+  park1,
+  park10,
+  park11,
+  park12,
+  park13,
+  park2,
+  park3,
+  park4,
+  park5,
+  park6,
+  park7,
+  park8,
+  park9,
+} from '../../assets/images/listing-assets'
 
 const listingItems = [
   {
