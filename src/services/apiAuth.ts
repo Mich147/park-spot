@@ -1,7 +1,8 @@
+import { CredentialTypes } from '../types'
 import supabase from './supabase'
 
 // create user
-export async function createUser({ email, password }) {
+export async function createUser({ email, password }: CredentialTypes) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -31,7 +32,7 @@ export async function getTheUser() {
   return user
 }
 
-export async function login({ email, password }) {
+export async function login({ email, password }: CredentialTypes) {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,

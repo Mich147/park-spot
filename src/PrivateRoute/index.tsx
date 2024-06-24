@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types'
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { getTheUser } from '../../features/auth/auth.slice'
+import { getTheUser } from '../features/auth/auth.slice'
+import { AppDispatch, RootState } from '../store'
 
-function PrivateRoute({ children }) {
-  const dispatch = useDispatch()
+function PrivateRoute({ children }: { children: ReactNode }) {
+  const dispatch = useDispatch<AppDispatch>()
 
-  const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth)
+  const { isLoading, isUserLoggedIn } = useSelector(
+    (state: RootState) => state.auth
+  )
 
   useEffect(() => {
     dispatch(getTheUser())

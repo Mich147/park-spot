@@ -40,8 +40,8 @@ function HelpFaq() {
             {faqItems.map((faq) => (
               <Collapse in={active === faq.id} key={`faqContent-${faq.id}`}>
                 <div>
-                  <h2>{faq.q}</h2>
-                  <p>{faq.a}</p>
+                  <h2>{faq.question}</h2>
+                  <p>{faq.answer}</p>
                 </div>
               </Collapse>
             ))}
