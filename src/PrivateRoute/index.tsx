@@ -2,19 +2,21 @@ import { ReactNode, useEffect } from 'react'
 import { Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { getTheUser } from '../features/auth/auth.slice'
+import { getTheUser } from '../features/auth/Login/auth.slice'
 import { AppDispatch, RootState } from '../store'
 
 function PrivateRoute({ children }: { children: ReactNode }) {
   const dispatch = useDispatch<AppDispatch>()
 
-  const { isLoading, isUserLoggedIn } = useSelector(
-    (state: RootState) => state.auth
-  )
+  const auth = useSelector((state: RootState) => state.auth)
+
+  const isLoading = auth.status === 'loading'
 
   useEffect(() => {
     dispatch(getTheUser())
   }, [dispatch])
+
+  console.log(auth.isUserLoggedIn)
 
   if (isLoading) {
     return (
@@ -28,7 +30,7 @@ function PrivateRoute({ children }: { children: ReactNode }) {
 
   // const isTrue = true
 
-  return isUserLoggedIn ? children : <Navigate to="/signup" replace />
+  return auth?.isUserLoggedIn ? children : <Navigate to="/signup" replace />
   // return user && children
 }
 

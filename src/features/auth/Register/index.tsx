@@ -1,40 +1,54 @@
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
 
 import { useForm } from 'react-hook-form'
 import styles from './styles.module.css'
 
 import { yupResolver } from '@hookform/resolvers/yup'
-import { registerSchema } from '../../helper/formSchema'
-import { RegisterTypes } from '../../types'
+import { useDispatch, useSelector } from 'react-redux'
+import { registerSchema } from '../../../helper/formSchema'
+import { AppDispatch, RootState } from '../../../store'
 
-function UserSignUp() {
-  const { register, handleSubmit, formState } = useForm<RegisterTypes>({
+import { useNavigate } from 'react-router-dom'
+import { RegisterTypes } from '../../../types'
+import { registerUser } from './register.slice'
+
+function Register() {
+  const { register, handleSubmit, formState, reset } = useForm<RegisterTypes>({
     resolver: yupResolver(registerSchema),
   })
   const { errors } = formState
+  const navigate = useNavigate()
+
+  const auth = useSelector((state: RootState) => state.auth)
+
+  const { status } = useSelector((state: RootState) => state.register)
+  const isLoading = status === 'loading'
+  const isSuccess = status === 'success'
+
+  const dispatch = useDispatch<AppDispatch>()
 
   function registerHandler(data: RegisterTypes) {
-    console.log(data)
+    dispatch(registerUser(data))
+
+    reset()
   }
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="d-flex justify-content-center">
-  //       <Spinner animation="border" role="status">
-  //         <span className="visually-hidden">Loading...</span>
-  //       </Spinner>
-  //     </div>
-  //   )
-  // }
-
-  const isSigningSuccess: boolean = false
+  if (isLoading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    )
+  }
 
   return (
     <section className="signUp py-5">
       <Container>
         <Row className={` mx-auto justify-content-center`}>
           <Col lg={8}>
-            {isSigningSuccess ? (
+            {isSuccess ? (
               <h1 className="text-center mb-4">You may login now</h1>
             ) : (
               <>
@@ -97,4 +111,4 @@ function UserSignUp() {
   )
 }
 
-export default UserSignUp
+export default Register

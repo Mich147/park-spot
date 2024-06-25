@@ -13,31 +13,31 @@ import logo from '../../assets/logo.png'
 
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { getTheUser, logout } from '../../features/auth/auth.slice'
+import Login from '../../features/auth/Login'
+import { getTheUser, logout } from '../../features/auth/Login/auth.slice'
 import { AppDispatch, RootState } from '../../store'
-import Login from '../Login'
 import styles from './styles.module.css'
 
 function Navigation() {
   const [modalShow, setModalShow] = useState<boolean>(false)
 
   const dispatch = useDispatch<AppDispatch>()
-  const navigate = useNavigate()
 
-  const { isLoading, isUserLoggedIn, isLogout } = useSelector(
+  const { status, isUserLoggedIn, user } = useSelector(
     (state: RootState) => state.auth
   )
+
+  const isLoading = status === 'isLoading'
 
   function handleClick() {
     dispatch(logout())
   }
 
   useEffect(() => {
-    if (isUserLoggedIn === null) {
+    if (!isUserLoggedIn) {
       dispatch(getTheUser())
     }
-  }, [isUserLoggedIn, navigate, dispatch])
+  }, [])
 
   return (
     <Navbar
@@ -84,7 +84,7 @@ function Navigation() {
             </Spinner>
           ) : (
             <>
-              {isUserLoggedIn ? (
+              {isUserLoggedIn && user ? (
                 <div className="d-flex gap-4">
                   <Nav>
                     <LinkContainer to="/dashboard">
@@ -99,13 +99,7 @@ function Navigation() {
                     className={styles.logBtn}
                     onClick={handleClick}
                   >
-                    {isLogout ? (
-                      <Spinner animation="border" role="status" size="sm">
-                        <span className="visually-hidden">Loading...</span>
-                      </Spinner>
-                    ) : (
-                      'Logout'
-                    )}
+                    Logout
                   </Button>
                 </div>
               ) : (

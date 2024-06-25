@@ -4,20 +4,27 @@ import {
   getTheUser as getTheUserApi,
   login as loginApi,
   logout as logoutApi,
-} from '../../services/apiAuth'
-import { CredentialTypes } from '../../types'
+} from '../../../services/apiAuth'
+import { CredentialTypes } from '../../../types'
+
+// type AuthState = {
+//   status: string
+//   isUserLoggedIn: boolean
+//   error: string
+//   user: {} | null
+// }
 
 const user = JSON.parse(
   localStorage.getItem('sb-krofhothmxsgykxijorf-auth-token') || '{}'
 )
 
 const initialState = {
-  user: user ? user : null,
-  isLoading: false,
+  user: localStorage.getItem('sb-krofhothmxsgykxijorf-auth-token')
+    ? user
+    : null,
+  status: ' idle',
   isUserLoggedIn: false,
-  isError: false,
-  isLogout: false,
-  message: '',
+  error: '',
 }
 
 export const login = createAsyncThunk(
@@ -53,52 +60,58 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = ''
+    },
+  },
   extraReducers: function (builder) {
     builder
       .addCase(login.pending, (state) => {
-        state.isLoading = true
+        state.status = 'loading'
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.isLoading = false
+        state.status = 'succes'
         state.isUserLoggedIn = true
         state.user = action.payload
       })
       .addCase(login.rejected, (state, action) => {
-        state.isLoading = false
+        state.status = 'error'
         state.isUserLoggedIn = false
-        state.message = action.payload as string
-        state.isError = true
+        state.error = action.payload as string
         state.user = null
       })
+
       .addCase(getTheUser.pending, (state) => {
-        state.isLoading = true
+        state.status = 'loading'
       })
       .addCase(getTheUser.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isUserLoggedIn = state.user === null ? false : true
+        state.status = 'success'
+        state.isUserLoggedIn = true
         state.user = action.payload
       })
       .addCase(getTheUser.rejected, (state, action) => {
-        state.isLoading = false
+        state.status = 'error'
         state.isUserLoggedIn = false
-        state.message = action.payload as string
-        state.user = null
+        state.error = action.payload as string
       })
+
       .addCase(logout.pending, (state) => {
-        state.isLogout = true
+        state.status = 'loading'
       })
-      .addCase(logout.fulfilled, (state, action) => {
-        state.isLogout = false
-        state.isUserLoggedIn = false
-        state.user = action.payload
+
+      .addCase(logout.fulfilled, (state) => {
+        state.status = 'success'
+        state.user = null
+        // localStorage.clear()
       })
       .addCase(logout.rejected, (state, action) => {
-        state.isLogout = false
-        state.message = action.payload as string
-        state.user = null
+        state.status = 'error'
+        state.error = action.payload as string
       })
   },
 })
+
+export const { clearError } = authSlice.actions
 
 export default authSlice.reducer
