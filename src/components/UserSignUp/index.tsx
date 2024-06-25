@@ -3,17 +3,17 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import styles from './styles.module.css'
 
-type Inputs = {
-  email: string
-  password: string
-  confirmPassword: string
-}
+import { yupResolver } from '@hookform/resolvers/yup'
+import { registerSchema } from '../../helper/formSchema'
+import { RegisterTypes } from '../../types'
 
 function UserSignUp() {
-  const { register, handleSubmit, formState, watch } = useForm<Inputs>()
+  const { register, handleSubmit, formState } = useForm<RegisterTypes>({
+    resolver: yupResolver(registerSchema),
+  })
   const { errors } = formState
 
-  function registerHandler(data: Inputs) {
+  function registerHandler(data: RegisterTypes) {
     console.log(data)
   }
 
@@ -48,13 +48,12 @@ function UserSignUp() {
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
                       type="email"
-                      {...register('email', {
-                        required: 'Email is required',
-                      })}
+                      {...register('email')}
                       isInvalid={!!errors.email}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors?.email && errors?.email.message}
+                      {/* {errors?.email && errors?.email.message} */}
+                      {errors?.email?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 
@@ -62,13 +61,12 @@ function UserSignUp() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                       type="password"
-                      {...register('password', {
-                        required: 'Password is required',
-                      })}
+                      {...register('password')}
                       isInvalid={!!errors.password}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors?.password && errors?.password.message}
+                      {/* {errors?.password && errors?.password.message} */}
+                      {errors?.password?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 
@@ -76,19 +74,13 @@ function UserSignUp() {
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                       type="password"
-                      {...register('confirmPassword', {
-                        required: 'Please confirm your password',
-                        validate: (val: string) => {
-                          if (watch('password') !== val) {
-                            return 'Password did not match'
-                          }
-                        },
-                      })}
+                      {...register('confirmPassword')}
                       isInvalid={!!errors.confirmPassword}
                     />
                     <Form.Control.Feedback type="invalid">
-                      {errors?.confirmPassword &&
-                        errors?.confirmPassword.message}
+                      {/* {errors?.confirmPassword &&
+                        errors?.confirmPassword.message} */}
+                      {errors?.confirmPassword?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
 

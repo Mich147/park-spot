@@ -24,3 +24,11 @@ export type ListingItemTypes = {
   ratings: number
   img: string
 }
+
+export type RegisterTypes = {
+  email: string
+  password: string
+  confirmPassword: string
+}
+
+export type LoginTypes = Omit<RegisterTypes, 'confirmPassword'>
