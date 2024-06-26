@@ -16,8 +16,6 @@ function PrivateRoute({ children }: { children: ReactNode }) {
     dispatch(getTheUser())
   }, [dispatch])
 
-  console.log(auth.isUserLoggedIn)
-
   if (isLoading) {
     return (
       <div className="d-flex justify-content-center">
@@ -30,8 +28,12 @@ function PrivateRoute({ children }: { children: ReactNode }) {
 
   // const isTrue = true
 
-  return auth?.isUserLoggedIn ? children : <Navigate to="/signup" replace />
-  // return user && children
+  return auth?.isUserLoggedIn && auth.user ? (
+    children
+  ) : (
+    <Navigate to="/signup" replace />
+  )
+  // return isTrue ? children : <Navigate to="/signup" replace />
 }
 
 export default PrivateRoute

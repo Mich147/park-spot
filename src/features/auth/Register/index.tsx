@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { registerSchema } from '../../../helper/formSchema'
 import { AppDispatch, RootState } from '../../../store'
 
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterTypes } from '../../../types'
 import { registerUser } from './register.slice'
@@ -32,6 +33,12 @@ function Register() {
 
     reset()
   }
+
+  useEffect(() => {
+    if (auth.isUserLoggedIn || auth.user) {
+      navigate('/dashboard')
+    }
+  }, [auth.isUserLoggedIn, auth.user, navigate])
 
   if (isLoading) {
     return (

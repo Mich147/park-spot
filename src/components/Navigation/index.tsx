@@ -11,10 +11,10 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 import logo from '../../assets/logo.png'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Login from '../../features/auth/Login'
-import { getTheUser, logout } from '../../features/auth/Login/auth.slice'
+import { logout } from '../../features/auth/Login/auth.slice'
 import { AppDispatch, RootState } from '../../store'
 import styles from './styles.module.css'
 
@@ -32,12 +32,6 @@ function Navigation() {
   function handleClick() {
     dispatch(logout())
   }
-
-  useEffect(() => {
-    if (!isUserLoggedIn) {
-      dispatch(getTheUser())
-    }
-  }, [])
 
   return (
     <Navbar
@@ -84,7 +78,7 @@ function Navigation() {
             </Spinner>
           ) : (
             <>
-              {isUserLoggedIn && user ? (
+              {isUserLoggedIn || user ? (
                 <div className="d-flex gap-4">
                   <Nav>
                     <LinkContainer to="/dashboard">

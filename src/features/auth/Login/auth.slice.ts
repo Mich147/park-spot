@@ -87,7 +87,7 @@ const authSlice = createSlice({
       })
       .addCase(getTheUser.fulfilled, (state, action) => {
         state.status = 'success'
-        state.isUserLoggedIn = true
+        state.isUserLoggedIn = state.user !== null ? true : false
         state.user = action.payload
       })
       .addCase(getTheUser.rejected, (state, action) => {
@@ -103,6 +103,7 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.status = 'success'
         state.user = null
+        state.isUserLoggedIn = false
         // localStorage.clear()
       })
       .addCase(logout.rejected, (state, action) => {

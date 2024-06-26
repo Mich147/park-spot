@@ -1,12 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { RootState } from '@reduxjs/toolkit/query'
 import { useEffect, useState } from 'react'
 import { Button, Form, Modal, Spinner } from 'react-bootstrap'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { loginShema } from '../../../helper/formSchema'
-import { AppDispatch } from '../../../store'
+import { AppDispatch, RootState } from '../../../store'
 import { LoginTypes } from '../../../types'
 import { clearError, login } from './auth.slice'
 

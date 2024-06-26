@@ -11,7 +11,6 @@ function ListItem({
   distance,
   ratings,
 }: ListItemProps) {
-  console.log(carType)
   return (
     <Col lg={4} className="my-3">
       <Card>
