@@ -9,7 +9,7 @@ function DashboardUserScreen() {
         <h1 className="text-center">User Dashboard</h1>
       </Link>
 
-      <div className="h-100 d-inline-block">
+      <div className="h-100">
         <div className="row">
           <div className="col-lg-3">
             <SideBar />
