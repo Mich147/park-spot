@@ -17,6 +17,7 @@ import {
 const listingItems = [
   {
     id: '8b7-406',
+    title: 'driveway oasis',
     location: 'valenzuela',
     parkType: 'home-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -26,6 +27,7 @@ const listingItems = [
   },
   {
     id: 'a94-c94',
+    title: 'park and relax haven',
     location: 'quezon',
     parkType: 'home-parking',
     carType: 'SUV',
@@ -35,6 +37,7 @@ const listingItems = [
   },
   {
     id: 'cf7-64d',
+    title: 'carport paradise',
     location: 'taguig',
     parkType: 'home-parking',
     carType: ['SUV', 'Motorcyle'],
@@ -44,6 +47,7 @@ const listingItems = [
   },
   {
     id: 'b2-40f',
+    title: 'garage haven',
     location: 'pasay',
     parkType: 'home-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -53,6 +57,7 @@ const listingItems = [
   },
   {
     id: 'b51-b78',
+    title: 'vehicle sanctuary',
     location: 'manila',
     parkType: 'home-parking',
     carType: ['Sedan', 'SUV', 'Light Truck'],
@@ -62,6 +67,7 @@ const listingItems = [
   },
   {
     id: '0aa-914',
+    title: 'parking paradise',
     location: 'caloocan',
     parkType: 'home-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -71,6 +77,7 @@ const listingItems = [
   },
   {
     id: '63f-360',
+    title: 'driveway delight',
     location: 'mandaluyong',
     parkType: 'home-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -89,6 +96,7 @@ const listingItems = [
   },
   {
     id: 'e85-0ba',
+    title: 'restful retreat',
     location: 'valenzuela',
     parkType: 'establishment-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -98,6 +106,7 @@ const listingItems = [
   },
   {
     id: '8b8-2f5',
+    title: 'safe spot sanctuary',
     location: 'manila',
     parkType: 'establishment-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -107,6 +116,7 @@ const listingItems = [
   },
   {
     id: '34a-e81',
+    title: 'Car Haven Hub',
     location: 'makati',
     parkType: 'establishment-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -116,6 +126,7 @@ const listingItems = [
   },
   {
     id: '0a-a45',
+    title: 'parking nest',
     location: 'las piñas',
     parkType: 'establishment-parking',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
@@ -125,6 +136,7 @@ const listingItems = [
   },
   {
     id: '846-f4b',
+    title: 'auto sanctuary',
     location: 'manila',
     parkType: 'parking-Lot',
     carType: ['SUV', 'Sedan', 'Motorcyle'],
