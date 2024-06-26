@@ -1,5 +1,5 @@
-import { RootState } from '@reduxjs/toolkit/query'
 import { useSelector } from 'react-redux'
+import { RootState } from '../../../store'
 
 function UserBoard() {
   const { user } = useSelector((state: RootState) => state.auth)
