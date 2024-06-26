@@ -23,6 +23,7 @@ import {
   SignupUserScreen,
 } from './Screens'
 import DashboardUserScreen from './Screens/DashboardUserScreen'
+import ListingDetailsScreen from './Screens/ListingDetailsScreen'
 
 const Router = () => {
   const router = createBrowserRouter(
@@ -32,6 +33,7 @@ const Router = () => {
           <Route index element={<HomeScreen />} />
           <Route path="how-it-works" element={<HowItWorksScreen />} />
           <Route path="listing" element={<ListingScreen />} />
+          <Route path="listing/:id" element={<ListingDetailsScreen />} />
           <Route path="contact" element={<ContactScreen />} />
           <Route path="help" element={<HelpScreen />} />
           <Route path="signup" element={<SignupUserScreen />} />
