@@ -4,15 +4,15 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom'
-import App from './App'
 
+import App from './App'
 import UserBoard from './components/Dashboard/UserBoard'
 import BookHistory from './components/Dashboard/UserBoard/BookHistory'
 import Bookings from './components/Dashboard/UserBoard/Bookings'
 import Notifications from './components/Dashboard/UserBoard/Notifications'
 import PaymentMethods from './components/Dashboard/UserBoard/PaymentMethods'
 import Profile from './components/Dashboard/UserBoard/Profile'
-import PrivateRoute from './components/PrivateRoute'
+import PrivateRoute from './PrivateRoute'
 import {
   ContactScreen,
   ErrorScreen,
@@ -29,7 +29,7 @@ const Router = () => {
     createRoutesFromElements(
       <>
         <Route path="/" element={<App />} errorElement={<ErrorScreen />}>
-          <Route index="*" element={<HomeScreen />} />
+          <Route index element={<HomeScreen />} />
           <Route path="how-it-works" element={<HowItWorksScreen />} />
           <Route path="listing" element={<ListingScreen />} />
           <Route path="contact" element={<ContactScreen />} />

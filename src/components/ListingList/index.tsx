@@ -16,7 +16,13 @@ function ListingList() {
         <Row>Filter options</Row>
         <Row>
           {listingItems.map((item) => (
-            <ListItem key={`list-${item.id}`} {...item} />
+            <ListItem
+              key={`list-${item.id}`}
+              {...item}
+              carType={
+                Array.isArray(item.carType) ? item.carType : [item.carType]
+              }
+            />
           ))}
         </Row>
       </Container>

@@ -1,9 +1,9 @@
-import UserSignUp from '../../components/UserSignUp'
+import Register from '../../features/auth/Register'
 
 function SignupUserScreen() {
   return (
     <>
-      <UserSignUp />
+      <Register />
     </>
   )
 }
