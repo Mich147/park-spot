@@ -23,7 +23,7 @@ function Navigation() {
 
   const dispatch = useDispatch<AppDispatch>()
 
-  const { status, isUserLoggedIn, user } = useSelector(
+  const { status, isUserLoggedIn, user, isLogout } = useSelector(
     (state: RootState) => state.auth
   )
 
@@ -93,7 +93,15 @@ function Navigation() {
                     className={styles.logBtn}
                     onClick={handleClick}
                   >
-                    Logout
+                    {isLogout ? (
+                      <div className="d-flex justify-content-center">
+                        <Spinner animation="border" size="sm" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                      </div>
+                    ) : (
+                      'Logout'
+                    )}
                   </Button>
                 </div>
               ) : (

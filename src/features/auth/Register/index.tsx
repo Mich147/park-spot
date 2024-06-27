@@ -8,13 +8,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { registerSchema } from '../../../helper/formSchema'
 import { AppDispatch, RootState } from '../../../store'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegisterTypes } from '../../../types'
-import { registerUser } from './register.slice'
+import { registerUser, reset } from './register.slice'
 
 function Register() {
-  const { register, handleSubmit, formState, reset } = useForm<RegisterTypes>({
+  const {
+    register,
+    handleSubmit,
+    formState,
+    reset: resetFormInputs,
+  } = useForm<RegisterTypes>({
     resolver: yupResolver(registerSchema),
   })
   const { errors } = formState
@@ -22,23 +27,31 @@ function Register() {
 
   const auth = useSelector((state: RootState) => state.auth)
 
-  const { status } = useSelector((state: RootState) => state.register)
+  const [err, setErr] = useState<string>('')
+
+  const { status, message } = useSelector((state: RootState) => state.register)
   const isLoading = status === 'loading'
   const isSuccess = status === 'success'
+  const isError = status === 'error'
 
   const dispatch = useDispatch<AppDispatch>()
 
-  function registerHandler(data: RegisterTypes) {
-    dispatch(registerUser(data))
-
-    reset()
-  }
-
   useEffect(() => {
-    if (auth.isUserLoggedIn || auth.user) {
+    if (isError) {
+      setErr(message)
+    }
+
+    if (auth.user) {
       navigate('/dashboard')
     }
-  }, [auth.isUserLoggedIn, auth.user, navigate])
+
+    dispatch(reset())
+  }, [auth.isUserLoggedIn, auth.user, navigate, isError, message])
+
+  function registerHandler(data: RegisterTypes) {
+    dispatch(registerUser(data))
+    resetFormInputs()
+  }
 
   if (isLoading) {
     return (
@@ -77,7 +90,6 @@ function Register() {
                       {errors?.email?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
@@ -90,7 +102,6 @@ function Register() {
                       {errors?.password?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
@@ -104,12 +115,18 @@ function Register() {
                       {errors?.confirmPassword?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
-
                   <Button variant="primary" type="submit">
                     Sign Up
                   </Button>
                 </Form>
               </>
+            )}
+
+            {/* {isError && <p className="lead">{message}</p>} */}
+            {err && (
+              <div className="mt-3 alert alert-danger" role="alert">
+                {err}
+              </div>
             )}
           </Col>
         </Row>
