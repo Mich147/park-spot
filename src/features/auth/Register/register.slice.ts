@@ -4,7 +4,7 @@ import { CredentialTypes } from '../../../types'
 
 const initialState = {
   status: 'idle',
-  error: '',
+  message: '',
 }
 
 export const registerUser = createAsyncThunk(
@@ -13,8 +13,8 @@ export const registerUser = createAsyncThunk(
     try {
       return await createUserApi(user)
     } catch (error) {
-      console.log(error)
-      return thunkAPI.rejectWithValue((error as Error).message)
+      const message = (error as Error).message
+      return thunkAPI.rejectWithValue(message)
     }
   }
 )
@@ -22,7 +22,12 @@ export const registerUser = createAsyncThunk(
 const registerSlice = createSlice({
   name: 'register',
   initialState,
-  reducers: {},
+  reducers: {
+    reset(state) {
+      state.status = 'idle'
+      state.message = ''
+    },
+  },
   extraReducers(builder) {
     builder.addCase(registerUser.pending, (state) => {
       state.status = 'loading'
@@ -31,13 +36,13 @@ const registerSlice = createSlice({
       state.status = 'success'
       localStorage.clear()
     })
-    builder.addCase(registerUser.rejected, (state) => {
+    builder.addCase(registerUser.rejected, (state, action) => {
       state.status = 'error'
-      state.error = 'There is an error registering a user'
+      state.message = action.payload as string
     })
   },
 })
 
-// export const {} = registerSlice.actions
+export const { reset } = registerSlice.actions
 
 export default registerSlice.reducer

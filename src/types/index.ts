@@ -17,12 +17,14 @@ export type FAQItemTypes = {
 
 export type ListingItemTypes = {
   id: string
+  title: string
   location: string
   parkType: string
   distance: number
   carType: string[]
   ratings: number
   img: string
+  features: string[]
 }
 
 export type RegisterTypes = {

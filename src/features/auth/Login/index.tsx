@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { loginShema } from '../../../helper/formSchema'
 import { AppDispatch, RootState } from '../../../store'
 import { LoginTypes } from '../../../types'
-import { clearError, login } from './auth.slice'
+import { login } from './auth.slice'
 
 type LoginProps = {
   modalShow: boolean
@@ -23,23 +23,28 @@ function Login({ modalShow, onHide }: LoginProps) {
 
   const { errors } = formState
 
-  const { status, error } = useSelector((state: RootState) => state.auth)
+  const { status, error, isUserLoggedIn, user } = useSelector(
+    (state: RootState) => state.auth
+  )
 
   const dispatch = useDispatch<AppDispatch>()
 
   const isLoading = status === 'loading'
+  const isError = status === 'error'
 
   const [loginSuccess, setLoginSuccess] = useState(false)
 
   const onLoginSubmitHandler: SubmitHandler<LoginTypes> = async (data) => {
     const resultAction = await dispatch(login(data))
+
+    // to be able to close modal to for success login
     if (login.fulfilled.match(resultAction)) {
       setLoginSuccess(true)
     }
   }
 
   useEffect(() => {
-    if (loginSuccess) {
+    if (isUserLoggedIn && !isError) {
       navigate('/dashboard')
       onHide(false)
     }
@@ -51,7 +56,6 @@ function Login({ modalShow, onHide }: LoginProps) {
         closeButton
         onClick={() => {
           onHide(false)
-          dispatch(clearError())
         }}
       >
         <Modal.Title id="contained-modal-title-vcenter">
@@ -91,8 +95,12 @@ function Login({ modalShow, onHide }: LoginProps) {
 
                 {errors?.password?.message}
               </Form.Control.Feedback>
-              {error ? <p>{error}</p> : ''}
             </Form.Group>
+            {error && (
+              <p className="text-danger" role="alert">
+                {error}
+              </p>
+            )}
 
             <Button type="submit">Login</Button>
           </Form>

@@ -15,16 +15,15 @@ import { CredentialTypes } from '../../../types'
 // }
 
 const user = JSON.parse(
-  localStorage.getItem('sb-krofhothmxsgykxijorf-auth-token') || '{}'
+  localStorage.getItem('sb-krofhothmxsgykxijorf-auth-token') || 'null'
 )
 
 const initialState = {
-  user: localStorage.getItem('sb-krofhothmxsgykxijorf-auth-token')
-    ? user
-    : null,
+  user: user ? user : null,
   status: ' idle',
   isUserLoggedIn: false,
   error: '',
+  isLogout: false,
 }
 
 export const login = createAsyncThunk(
@@ -33,19 +32,14 @@ export const login = createAsyncThunk(
     try {
       return await loginApi(user)
     } catch (error) {
-      console.error(error)
-      return thunkAPI.rejectWithValue((error as Error).message)
+      const message = (error as Error).message
+      return thunkAPI.rejectWithValue(message)
     }
   }
 )
 
-export const getTheUser = createAsyncThunk('auth/user', async (_, thunkAPI) => {
-  try {
-    return await getTheUserApi()
-  } catch (error) {
-    console.error(error)
-    return thunkAPI.rejectWithValue((error as Error).message)
-  }
+export const getTheUser = createAsyncThunk('auth/user', async () => {
+  return await getTheUserApi()
 })
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
@@ -61,7 +55,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    clearError: (state) => {
+    reset(state) {
+      state.isUserLoggedIn = true
+      state.status = 'idle'
       state.error = ''
     },
   },
@@ -95,24 +91,18 @@ const authSlice = createSlice({
         state.isUserLoggedIn = false
         state.error = action.payload as string
       })
-
       .addCase(logout.pending, (state) => {
-        state.status = 'loading'
+        state.isLogout = true
       })
 
       .addCase(logout.fulfilled, (state) => {
-        state.status = 'success'
+        state.isLogout = true
         state.user = null
         state.isUserLoggedIn = false
-        // localStorage.clear()
-      })
-      .addCase(logout.rejected, (state, action) => {
-        state.status = 'error'
-        state.error = action.payload as string
       })
   },
 })
 
-export const { clearError } = authSlice.actions
+export const { reset } = authSlice.actions
 
 export default authSlice.reducer
