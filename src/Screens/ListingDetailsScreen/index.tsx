@@ -1,20 +1,26 @@
 import { Button } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+import listingItems from '../../components/ListingList/data'
 import styles from './styles.module.css'
 
 function ListingDetailsScreen() {
+  const { id } = useParams()
+
+  const listing = listingItems.find((listing) => listing.id === id)
+
   return (
-    <div className="container my-5">
+    <div className="container my-5 theme-dark">
       <div className="row">
         <div className="col-lg-9">
-          <h3>Home Parking Space in Valenzuela</h3>
+          <h3 className="text-capitalize">{listing?.title}</h3>
           <p>
             <a href="#" className="posted-link">
-              Posted by: Mhanlo Loco
+              Posted by: {listing?.postedBy}
             </a>
           </p>
-          <p className="Info">Paso de Blas Valenzuela</p>
+          <p className="Info text-capitalize">Location: {listing?.location}</p>
           <p className="Info">
-            Available for: Motorcycle, Sedan, SUV, Light Truck
+            Available for: {listing?.carType?.map(String).join(', ')}
           </p>
           <p>
             Ratings: <i className="fas fa-star"></i> 3.5
@@ -29,21 +35,9 @@ function ListingDetailsScreen() {
 
           <h2>Parking Features:</h2>
           <ul>
-            <li>
-              <i className="fas fa-check"></i> Covered Parking
-            </li>
-            <li>
-              <i className="fas fa-check"></i> Gated
-            </li>
-            <li>
-              <i className="fas fa-check"></i> Free Car Wash
-            </li>
-            <li>
-              <i className="fas fa-check"></i> Security Camera Coverage
-            </li>
-            <li>
-              <i className="fas fa-check"></i> Close to Public Transit
-            </li>
+            {listing?.features.map((feature, idx) => (
+              <li key={`feature-${idx}`}>{feature}</li>
+            ))}
           </ul>
 
           {/* Map area */}
