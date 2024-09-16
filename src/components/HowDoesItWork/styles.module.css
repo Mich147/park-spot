@@ -1,0 +1,12 @@
+.heading {
+  font-size: clamp(2rem, 3vw, 5rem);
+}
+
+.title {
+  font-size: clamp(2.3rem, 4vw, 3rem);
+  color: rgb(20, 168, 255);
+}
+
+.description {
+  font-size: clamp(1rem, 3vw, 1.6rem);
+}

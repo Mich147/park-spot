@@ -1,0 +1,21 @@
+.listingForm > * {
+  flex: 1;
+}
+
+.listingForm > div label {
+  color: #212529;
+}
+
+.listingForm button {
+  flex: 0.4;
+}
+
+/* .heroForm input[type='text']::placeholder {
+  color: #000 !important;
+} */
+
+@media (width <= 62em) {
+  .listingForm > * {
+    margin-bottom: 1rem;
+  }
+}

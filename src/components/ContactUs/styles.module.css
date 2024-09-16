@@ -1,0 +1,17 @@
+.contactUs {
+  padding-block: 3rem;
+}
+
+.subBtn {
+  background-color: #14a8ff;
+  border-color: #14a8ff;
+  color: #fff;
+}
+
+.form {
+  border-radius: 15px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.224);
+  padding-block: 2rem;
+  padding-inline: 1.6rem;
+  margin-top: 2rem;
+}
